@@ -25,9 +25,17 @@ except ImportError:
     print("[ERRO] pygame nao instalado.  pip install -r requirements.txt")
     sys.exit(1)
 
-# ── Porta padrão — altere aqui se necessário ─────────────────────────────────
-DEFAULT_PORT = "COM8"
-DEFAULT_BAUD = 115200
+# ── Configuracao (tools/config.py) — com fallback caso o arquivo falte ───────
+try:
+    import config as cfg
+except Exception:
+    cfg = None
+
+def _cfg(name, default):
+    return getattr(cfg, name, default) if cfg else default
+
+DEFAULT_PORT = _cfg('PORT', 'COM8')
+DEFAULT_BAUD = _cfg('BAUD', 115200)
 
 # ── Constantes ───────────────────────────────────────────────────────────────
 
@@ -35,10 +43,11 @@ WIN_W, WIN_H      = 1060, 660
 SAMPLES_NEEDED    = 80
 FPS               = 60
 TRAIL_LEN         = 150
-TABLE_W_MM        = 187.0
-TABLE_H_MM        = 141.0
+TABLE_W_MM        = float(_cfg('SCREEN_W_MM', 187.0))
+TABLE_H_MM        = float(_cfg('SCREEN_H_MM', 141.0))
 
 HEADER_PATH = pathlib.Path(__file__).parent.parent / "main" / "touch_screen.h"
+CONFIG_PATH = pathlib.Path(__file__).parent / "config.py"
 
 # ── Paleta ───────────────────────────────────────────────────────────────────
 
@@ -150,6 +159,11 @@ class App:
         self.cal         = None                    # (x_min, x_max, y_min, y_max)
         self.save_msg    = ''
         self.save_ts     = 0.0
+
+        # Orientacao (carregada do config, ajustavel ao vivo no LIVE)
+        self.swap_xy = bool(_cfg('SWAP_XY', False))
+        self.flip_x  = bool(_cfg('FLIP_X', False))
+        self.flip_y  = bool(_cfg('FLIP_Y', False))
 
         # Live
         self.trail = collections.deque(maxlen=TRAIL_LEN)
@@ -490,99 +504,169 @@ class App:
                 return int(mag * f)
         return int(raw) + 1
 
+    def _orient(self, nx, ny):
+        """Aplica swap/flip a coordenadas normalizadas (0..1)."""
+        if self.swap_xy:
+            nx, ny = ny, nx
+        if self.flip_x:
+            nx = 1.0 - nx
+        if self.flip_y:
+            ny = 1.0 - ny
+        return nx, ny
+
+    def _orient_str(self):
+        parts = []
+        if self.swap_xy: parts.append("SWAP")
+        if self.flip_x:  parts.append("FLIP_X")
+        if self.flip_y:  parts.append("FLIP_Y")
+        return " + ".join(parts) if parts else "padrao"
+
+    def _persist_orientation(self):
+        ok_cfg = self._write_orientation(
+            CONFIG_PATH,
+            [('SWAP_XY', self.swap_xy), ('FLIP_X', self.flip_x), ('FLIP_Y', self.flip_y)],
+            r'(?m)^(%s\s*=\s*)(?:True|False)', lambda v: str(bool(v)))
+        ok_hdr = self._write_orientation(
+            HEADER_PATH,
+            [('TOUCH_SWAP_XY', self.swap_xy), ('TOUCH_FLIP_X', self.flip_x), ('TOUCH_FLIP_Y', self.flip_y)],
+            r'(#define\s+%s\s+)[01]', lambda v: '1' if v else '0')
+        if ok_cfg and ok_hdr:
+            self.save_msg = "Orientacao salva: config.py + touch_screen.h (rebuild p/ aplicar no firmware)"
+        elif ok_cfg:
+            self.save_msg = "Salvo em config.py (touch_screen.h falhou)"
+        else:
+            self.save_msg = "Erro ao salvar orientacao"
+        self.save_ts = time.time()
+
+    @staticmethod
+    def _write_orientation(path, pairs, pattern_tmpl, fmt):
+        try:
+            if not path.exists():
+                return False
+            txt = path.read_text(encoding='utf-8')
+            for name, val in pairs:
+                txt = re.sub(pattern_tmpl % name,
+                             lambda m, v=val: m.group(1) + fmt(v),
+                             txt)
+            path.write_text(txt, encoding='utf-8')
+            return True
+        except Exception as e:
+            print(f"[ERRO] gravando {path.name}: {e}")
+            return False
+
     def _live(self):
         s = self.screen
         s.fill(C['bg'])
 
         x_min, x_max, y_min, y_max = self.cal
-        x_span = x_max - x_min or 1
-        y_span = y_max - y_min or 1
+        x_span = (x_max - x_min) or 1
+        y_span = (y_max - y_min) or 1
 
         # Titulo
-        self._t("VISUALIZACAO AO VIVO  —  eixos em raw", C['heading'],
-                WIN_W//2 - 130, 14, self.f_md)
+        self._t("VISUALIZACAO AO VIVO  —  tela fisica em mm (aspecto real)",
+                C['heading'], 30, 14, self.f_md)
 
-        # Geometria do plot
-        PAD_L, PAD_R, PAD_T, PAD_B = 88, 20, 48, 62
-        PANEL_W = 265
-        pw = WIN_W - PANEL_W - PAD_L - PAD_R
-        ph = WIN_H - PAD_T - PAD_B
-        ox, oy = PAD_L, PAD_T
+        # Area disponivel
+        PAD_L, PAD_R, PAD_T, PAD_B = 70, 20, 50, 72
+        PANEL_W = 300
+        avail_w = WIN_W - PANEL_W - PAD_L - PAD_R
+        avail_h = WIN_H - PAD_T - PAD_B
 
-        def r2p(xr, yr):
-            fx = max(0.0, min(1.0, (xr - x_min) / x_span))
-            fy = max(0.0, min(1.0, (yr - y_min) / y_span))
-            return (ox + int(fx * pw), oy + ph - int(fy * ph))
+        # Retangulo com aspecto correto (W:H) e escala uniforme — sem distorcer
+        scale = min(avail_w / TABLE_W_MM, avail_h / TABLE_H_MM)
+        rw = int(TABLE_W_MM * scale)
+        rh = int(TABLE_H_MM * scale)
+        ox = PAD_L + (avail_w - rw) // 2
+        oy = PAD_T + (avail_h - rh) // 2
+        plot_rect = pygame.Rect(ox, oy, rw, rh)
 
-        plot_rect = pygame.Rect(ox, oy, pw, ph)
+        def mm2p(xmm, ymm):
+            px = ox + int(xmm / TABLE_W_MM * rw)
+            py = oy + rh - int(ymm / TABLE_H_MM * rh)   # Y para cima
+            return px, py
+
+        def raw2mm(xr, yr):
+            nx = max(0.0, min(1.0, (xr - x_min) / x_span))
+            ny = max(0.0, min(1.0, (yr - y_min) / y_span))
+            nx, ny = self._orient(nx, ny)
+            return nx * TABLE_W_MM, ny * TABLE_H_MM
+
         pygame.draw.rect(s, C['table_bg'], plot_rect)
 
-        # Grade X
-        x_step = self._nice_step(x_span, 8)
-        xt = (x_min // x_step + 1) * x_step
-        while xt <= x_max:
-            px_v = ox + int((xt - x_min) / x_span * pw)
-            pygame.draw.line(s, C['grid'], (px_v, oy), (px_v, oy + ph))
-            lbl = self.f_sm.render(str(xt), True, C['dim'])
-            s.blit(lbl, (px_v - lbl.get_width()//2, oy + ph + 6))
-            xt += x_step
+        # Grade a cada 20 mm
+        gx = 20
+        v = gx
+        while v < TABLE_W_MM:
+            px = ox + int(v / TABLE_W_MM * rw)
+            pygame.draw.line(s, C['grid'], (px, oy), (px, oy + rh))
+            v += gx
+        v = gx
+        while v < TABLE_H_MM:
+            py = oy + rh - int(v / TABLE_H_MM * rh)
+            pygame.draw.line(s, C['grid'], (ox, py), (ox + rw, py))
+            v += gx
 
-        # Grade Y
-        y_step = self._nice_step(y_span, 6)
-        yt = (y_min // y_step + 1) * y_step
-        while yt <= y_max:
-            py_v = oy + ph - int((yt - y_min) / y_span * ph)
-            pygame.draw.line(s, C['grid'], (ox, py_v), (ox + pw, py_v))
-            lbl = self.f_sm.render(str(yt), True, C['dim'])
-            s.blit(lbl, (ox - lbl.get_width() - 5, py_v - lbl.get_height()//2))
-            yt += y_step
+        # Cruz central
+        cx, cy = mm2p(TABLE_W_MM / 2, TABLE_H_MM / 2)
+        pygame.draw.line(s, C['dim'], (cx - 12, cy), (cx + 12, cy))
+        pygame.draw.line(s, C['dim'], (cx, cy - 12), (cx, cy + 12))
 
-        # Eixos
-        pygame.draw.line(s, C['axis'], (ox, oy+ph), (ox+pw, oy+ph), 2)
-        pygame.draw.line(s, C['axis'], (ox, oy),    (ox, oy+ph),    2)
+        # Eixos + borda
         pygame.draw.rect(s, C['table_edge'], plot_rect, 2)
+        pygame.draw.line(s, C['axis'], (ox, oy + rh), (ox + rw, oy + rh), 2)
+        pygame.draw.line(s, C['axis'], (ox, oy), (ox, oy + rh), 2)
+
+        # Ticks em mm
+        for v in range(0, int(TABLE_W_MM) + 1, 40):
+            px = ox + int(v / TABLE_W_MM * rw)
+            lbl = self.f_sm.render(str(v), True, C['dim'])
+            s.blit(lbl, (px - lbl.get_width() // 2, oy + rh + 6))
+        for v in range(0, int(TABLE_H_MM) + 1, 40):
+            py = oy + rh - int(v / TABLE_H_MM * rh)
+            lbl = self.f_sm.render(str(v), True, C['dim'])
+            s.blit(lbl, (ox - lbl.get_width() - 6, py - lbl.get_height() // 2))
 
         # Labels de eixo
-        xl = self.f_sm.render("X  (raw)", True, C['axis'])
-        s.blit(xl, (ox + pw//2 - xl.get_width()//2, oy + ph + 42))
-        yl = self.f_sm.render("Y  (raw)", True, C['axis'])
-        yr_rot = pygame.transform.rotate(yl, 90)
-        s.blit(yr_rot, (ox - yr_rot.get_width() - 48, oy + ph//2 - yr_rot.get_height()//2))
+        xl = self.f_sm.render(f"X (mm)  0 - {TABLE_W_MM:.0f}", True, C['axis'])
+        s.blit(xl, (ox + rw // 2 - xl.get_width() // 2, oy + rh + 28))
+        yl = self.f_sm.render(f"Y (mm)  0 - {TABLE_H_MM:.0f}", True, C['axis'])
+        yl_rot = pygame.transform.rotate(yl, 90)
+        s.blit(yl_rot, (ox - yl_rot.get_width() - 30,
+                        oy + rh // 2 - yl_rot.get_height() // 2))
 
-        # Marcadores dos cantos calibrados
-        for i, (_, _, (rx_rel, ry_rel)) in enumerate(CORNERS):
+        # Marcadores dos cantos calibrados (com orientacao aplicada)
+        for _, _, (rx_rel, ry_rel) in CORNERS:
             cxr = x_min if rx_rel == 0 else x_max
             cyr = y_min if ry_rel == 0 else y_max
-            cpx, cpy = r2p(cxr, cyr)
-            pygame.draw.circle(s, C['corner_ok'], (cpx, cpy), 5)
-            pygame.draw.circle(s, (20, 120, 50), (cpx, cpy), 5, 2)
+            p = mm2p(*raw2mm(cxr, cyr))
+            pygame.draw.circle(s, C['corner_ok'], p, 5)
+            pygame.draw.circle(s, (20, 120, 50), p, 5, 2)
 
         # Trilha
         now = time.time()
-        trail = list(self.trail)
-        for xr, yr, ts in trail:
-            age  = now - ts
-            fade = max(0.0, 1.0 - age / 5.0)
+        for xr, yr, ts in list(self.trail):
+            fade = max(0.0, 1.0 - (now - ts) / 5.0)
             if fade <= 0:
                 continue
             r = int(C['trail_tail'][0] + (C['trail_head'][0] - C['trail_tail'][0]) * fade)
             g = int(C['trail_tail'][1] + (C['trail_head'][1] - C['trail_tail'][1]) * fade)
             b = int(C['trail_tail'][2] + (C['trail_head'][2] - C['trail_tail'][2]) * fade)
-            ppx, ppy = r2p(xr, yr)
-            if plot_rect.collidepoint(ppx, ppy):
-                pygame.draw.circle(s, (r, g, b), (ppx, ppy), max(2, int(5 * fade)))
+            p = mm2p(*raw2mm(xr, yr))
+            if plot_rect.collidepoint(p):
+                pygame.draw.circle(s, (r, g, b), p, max(2, int(5 * fade)))
 
         # Posicao atual
+        cur_mm = None
         if self.touched:
-            ppx, ppy = r2p(self.cur_xr, self.cur_yr)
-            if plot_rect.collidepoint(ppx, ppy):
-                pygame.draw.circle(s, C['ball'], (ppx, ppy), 12)
-                pygame.draw.circle(s, (255, 90, 90), (ppx, ppy), 12, 2)
+            cur_mm = raw2mm(self.cur_xr, self.cur_yr)
+            p = mm2p(*cur_mm)
+            if plot_rect.collidepoint(p):
+                pygame.draw.circle(s, C['ball'], p, 12)
+                pygame.draw.circle(s, (255, 90, 90), p, 12, 2)
 
         # ── Painel lateral ───────────────────────────────────────────────────
-        rpx = WIN_W - PANEL_W + 10
+        rpx = WIN_W - PANEL_W + 14
         rpy = 46
-        lh  = 22
 
         def rp(text, color, y_off, fnt=None):
             fnt = fnt or self.f_md
@@ -597,34 +681,44 @@ class App:
         col = C['good'] if self.touched else C['warn']
         y = rp("TOCANDO" if self.touched else "SEM TOQUE", col, y) + 4
         y = rp(f"X raw = {self.cur_xr:5d}", col, y)
-        y = rp(f"Y raw = {self.cur_yr:5d}", col, y) + 8
-
-        if self.touched:
-            xmm = (self.cur_xr - x_min) / x_span * TABLE_W_MM
-            ymm = (self.cur_yr - y_min) / y_span * TABLE_H_MM
-            xmm = max(0.0, min(TABLE_W_MM, xmm))
-            ymm = max(0.0, min(TABLE_H_MM, ymm))
-            y = rp(f"X = {xmm:6.1f} mm", C['dim'], y, self.f_sm)
-            y = rp(f"Y = {ymm:6.1f} mm", C['dim'], y, self.f_sm)
+        y = rp(f"Y raw = {self.cur_yr:5d}", col, y) + 6
+        if cur_mm:
+            y = rp(f"X = {cur_mm[0]:6.1f} mm", C['text'], y, self.f_sm)
+            y = rp(f"Y = {cur_mm[1]:6.1f} mm", C['text'], y, self.f_sm)
         else:
-            y = rp("X =   —  mm", C['dim'], y, self.f_sm)
-            y = rp("Y =   —  mm", C['dim'], y, self.f_sm)
+            y = rp("X =   --  mm", C['dim'], y, self.f_sm)
+            y = rp("Y =   --  mm", C['dim'], y, self.f_sm)
 
-        y += 16
+        y += 14
+        y = rp("ORIENTACAO", C['heading'], y, self.f_sm) + 4
+        y = rp(self._orient_str(), C['hint'], y) + 2
+        y = rp(f"  SWAP_XY = {self.swap_xy}", C['dim'], y, self.f_sm)
+        y = rp(f"  FLIP_X  = {self.flip_x}", C['dim'], y, self.f_sm)
+        y = rp(f"  FLIP_Y  = {self.flip_y}", C['dim'], y, self.f_sm)
+
+        y += 14
         y = rp("CALIBRACAO", C['heading'], y, self.f_sm) + 4
-        y = rp(f"X: {x_min} – {x_max}", C['hint'], y, self.f_sm)
-        y = rp(f"   span {x_max-x_min} raw", C['dim'], y, self.f_sm)
-        y = rp(f"Y: {y_min} – {y_max}", C['hint'], y, self.f_sm)
-        y = rp(f"   span {y_max-y_min} raw", C['dim'], y, self.f_sm)
+        y = rp(f"X: {x_min} - {x_max}", C['hint'], y, self.f_sm)
+        y = rp(f"Y: {y_min} - {y_max}", C['hint'], y, self.f_sm)
 
-        y += 16
+        y += 14
         conn_col = C['good'] if self.conn_txt == 'conectado' else C['warn']
         y = rp(f"{self.port} @{self.baud}", C['dim'], y, self.f_sm)
-        y = rp(self.conn_txt, conn_col, y, self.f_sm)
 
-        y += 16
+        y += 14
+        y = rp("── TECLAS ──", C['dim'], y, self.f_sm)
+        y = rp("T = trocar eixos (swap)", C['text'], y, self.f_sm)
+        y = rp("X = espelhar X", C['text'], y, self.f_sm)
+        y = rp("Y = espelhar Y", C['text'], y, self.f_sm)
+        y = rp("G = gravar orientacao", C['save_ok'], y, self.f_sm)
         y = rp("R = limpar trilha", C['dim'], y, self.f_sm)
         y = rp("ESC = sair", C['dim'], y, self.f_sm)
+
+        # Toast de salvamento
+        if self.save_msg and (time.time() - self.save_ts) < 3.5:
+            col2 = C['save_ok'] if 'salv' in self.save_msg.lower() else C['bad']
+            surf = self.f_sm.render(self.save_msg, True, col2)
+            s.blit(surf, (ox, WIN_H - 26))
 
     # ── Logica de calibracao ─────────────────────────────────────────────────
 
@@ -713,6 +807,17 @@ class App:
                         elif self.state == 'LIVE':
                             if k == pygame.K_r:
                                 self.trail.clear()
+                            elif k == pygame.K_t:
+                                self.swap_xy = not self.swap_xy
+                                self.trail.clear()
+                            elif k == pygame.K_x:
+                                self.flip_x = not self.flip_x
+                                self.trail.clear()
+                            elif k == pygame.K_y:
+                                self.flip_y = not self.flip_y
+                                self.trail.clear()
+                            elif k == pygame.K_g:
+                                self._persist_orientation()
 
                 # Coleta concluida
                 if self.state == 'CAL_COLLECTING' and len(self.samples) >= SAMPLES_NEEDED:

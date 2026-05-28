@@ -1170,3 +1170,27 @@
 364	428	8017058444105729	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
 364	428	8017058444105729	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
 428	4276	8017058444232325	CMakeFiles/flash.util	c334628a16c7743
+115	344	8017073682386224	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+115	344	8017073682386224	bootloader/bootloader.elf	3df1e71b20a70dfc
+115	344	8017073682386224	bootloader/bootloader.bin	3df1e71b20a70dfc
+115	344	8017073682386224	bootloader/bootloader.map	3df1e71b20a70dfc
+115	344	8017073682386224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+115	344	8017073682386224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+115	344	8017073682386224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+115	344	8017073682386224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+344	386	8017073684673015	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+344	386	8017073684673015	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+386	456	8017073685735910	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+386	456	8017073685735910	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+386	456	8017073685735910	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+386	456	8017073685735910	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+102	5420	8017073682249296	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	3285dcf85cc6b1de
+109	5421	8017073682321090	esp-idf/main/CMakeFiles/__idf_main.dir/touch_screen.c.obj	d45705a72b710fc6
+5421	5887	8017073735444301	esp-idf/main/libmain.a	904158e8003b6402
+5887	16371	8017073843885471	esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+5887	16371	8017073843885471	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+16371	19010	8017073844948428	ball_balancer.elf	6aee8de627a52e14
+19011	19277	8017073873944666	.bin_timestamp	59a5ece3f4ef6d77
+19011	19277	8017073873944666	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/.bin_timestamp	59a5ece3f4ef6d77
+19277	19394	8017073874007722	CMakeFiles/app_check_size	612701fe8ff9544d
+19277	19394	8017073874007722	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d

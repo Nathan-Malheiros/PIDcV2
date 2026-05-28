@@ -163,6 +163,11 @@ bool touch_read(touch_pos_t *pos)
     if (y_norm < 0.0f) y_norm = 0.0f;
     if (y_norm > 1.0f) y_norm = 1.0f;
 
+    /* orientation transform (see touch_screen.h / tools/config.py) */
+    if (TOUCH_SWAP_XY) { float t = x_norm; x_norm = y_norm; y_norm = t; }
+    if (TOUCH_FLIP_X)  { x_norm = 1.0f - x_norm; }
+    if (TOUCH_FLIP_Y)  { y_norm = 1.0f - y_norm; }
+
     float x_mm = x_norm * TOUCH_WIDTH_MM;
     float y_mm = y_norm * TOUCH_HEIGHT_MM;
 

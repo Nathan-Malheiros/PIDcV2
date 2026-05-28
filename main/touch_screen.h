@@ -31,6 +31,20 @@
 #define TOUCH_SAMPLES        8
 
 /*
+ * Axis orientation — keep in sync with tools/config.py.
+ * Applied to the normalised position before mm conversion so the output
+ * frame matches the physical table. The three flags together cover all 8
+ * orientations (4 rotations × mirror). Use calibrate.py's LIVE view (keys
+ * T / X / Y, then G to save) to find the right combination.
+ *   TOUCH_SWAP_XY : swap X <-> Y   (90° rotation)
+ *   TOUCH_FLIP_X  : mirror X
+ *   TOUCH_FLIP_Y  : mirror Y
+ */
+#define TOUCH_SWAP_XY  0
+#define TOUCH_FLIP_X   0
+#define TOUCH_FLIP_Y   0
+
+/*
  * IIR low-pass filter weight applied to the converted mm value.
  * Range: 0.0 (frozen) – 1.0 (no filter).
  * 0.25 gives ~4-sample settling time — adequate for a 50 Hz PID loop.
