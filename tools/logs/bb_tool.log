@@ -1,0 +1,25 @@
+[2026-05-28 17:17:24] === Ferramenta iniciada ===
+[2026-05-28 17:17:56] === Ferramenta iniciada ===
+[2026-05-28 17:18:11] porta definida manualmente: COM8
+[2026-05-28 17:18:14] build start
+[2026-05-28 17:18:23] ec=2 dur=9s
+[2026-05-28 17:20:25] === Ferramenta iniciada ===
+[2026-05-28 17:20:50] build start
+[2026-05-28 17:22:50] ec=2 dur=120s
+[2026-05-28 17:24:36] build start
+[2026-05-28 17:27:06] ec=0 dur=151s
+[2026-05-28 17:27:11] build start
+[2026-05-28 17:27:13] ec=0 dur=2s
+[2026-05-28 17:27:16] flash+monitor COM8
+[2026-05-28 17:43:15] === Ferramenta iniciada ===
+[2026-05-28 17:43:20] flash+monitor COM8
+[2026-05-28 17:43:33] === Ferramenta iniciada ===
+[2026-05-28 17:43:34] build start
+[2026-05-28 17:43:36] ec=0 dur=2s
+[2026-05-28 17:43:42] flash+monitor COM8
+[2026-05-28 17:44:25] === Ferramenta iniciada ===
+[2026-05-28 17:44:28] monitor COM8
+[2026-05-28 17:59:02] === Ferramenta iniciada ===
+[2026-05-28 17:59:03] build start
+[2026-05-28 18:01:29] ec=0 dur=146s
+[2026-05-28 18:02:05] flash+monitor COM8
