@@ -72,6 +72,17 @@ C = {
     'hint':        (168, 128, 220),
     'axis':        (110, 175, 110),
     'save_ok':     (80,  230, 120),
+    # cena isometrica (estado BALANCE)
+    'iso_plate':   (210, 205, 180),
+    'iso_plate2':  (150, 146, 120),
+    'iso_edge':    (60,  60,  70),
+    'iso_grid':    (120, 118, 100),
+    'iso_leg':     (90,  160, 220),
+    'iso_arm':     (230, 170,  60),
+    'iso_base':    (70,  70,  85),
+    'iso_target':  (90,  200, 120),
+    'iso_ball':    (220, 60,  60),
+    'iso_ballhi':  (255, 150, 150),
 }
 
 # ── Cantos de calibracao (ordem de coleta) ───────────────────────────────────
@@ -84,6 +95,93 @@ CORNERS = [
     ("INFERIOR ESQUERDO",  "Coloque a bola no\ncanto inferior esquerdo",  (0, 0)),
     ("INFERIOR DIREITO",   "Coloque a bola no\ncanto inferior direito",   (1, 0)),
 ]
+
+# ── Controle 3RPS + simulacao dos motores (espelha main/control.c) ───────────
+# A bola e REAL (vem da serial); os 3 motores NEMA 17 sao SIMULADOS reagindo a
+# ela. Mantenha estes valores em sincronia com main/control.c.
+
+GEO_D, GEO_E, GEO_F, GEO_G = 50.8, 79.4, 44.45, 93.2   # geometria 3RPS (mm)
+GEO_HZ      = 108.0                                     # altura neutra (mm)
+SQRT3       = math.sqrt(3.0)
+TILT_LIMIT  = 0.25                                      # clamp do vetor normal
+KP, KI, KD  = 8.0e-4, 2.0e-5, 1.2e-2                    # ganhos PID (dominio mm)
+
+# Suavizacao da visualizacao (constantes de tempo, segundos) — matam o flicker.
+BALL_TAU      = 0.06    # filtro da posicao da bola
+TILT_TAU      = 0.12    # filtro da inclinacao/motores
+PRESENCE_HOLD = 0.35    # segura a bola como "presente" apos um dropout curto
+
+LEG_AZ   = [math.radians(90), math.radians(210), math.radians(330)]
+LEG_NAME = ["A", "B", "C"]
+PLATE_BASE_Z = 70.0     # altura visual do centro da mesa (mm)
+
+
+def machine_theta(leg, hz, nx, ny, d=GEO_D, e=GEO_E, f=GEO_F, g=GEO_G):
+    """Cinematica inversa 3RPS — porte identico a main/kinematics.c."""
+    nmag = math.sqrt(nx * nx + ny * ny + 1.0)
+    nx /= nmag; ny /= nmag
+    nz = 1.0 / nmag
+    try:
+        if leg == 0:
+            y = d + (e / 2.0) * (1.0 - (nx * nx + 3.0 * nz * nz + 3.0 * nz) /
+                    (nz + 1.0 - nx * nx +
+                     (nx ** 4 - 3.0 * nx * nx * ny * ny) /
+                     ((nz + 1.0) * (nz + 1.0 - nx * nx))))
+            z = hz + e * ny
+            mag = math.sqrt(y * y + z * z)
+            ang = math.acos(y / mag) + math.acos((mag * mag + f * f - g * g) / (2.0 * mag * f))
+        elif leg == 1:
+            x = (SQRT3 / 2.0) * (e * (1.0 - (nx * nx + SQRT3 * nx * ny) / (nz + 1.0)) - d)
+            y = x / SQRT3
+            z = hz - (e / 2.0) * (SQRT3 * nx + ny)
+            mag = math.sqrt(x * x + y * y + z * z)
+            ang = math.acos((SQRT3 * x + y) / (-2.0 * mag)) + math.acos((mag * mag + f * f - g * g) / (2.0 * mag * f))
+        else:
+            x = (SQRT3 / 2.0) * (d - e * (1.0 - (nx * nx - SQRT3 * nx * ny) / (nz + 1.0)))
+            y = -x / SQRT3
+            z = hz + (e / 2.0) * (SQRT3 * nx - ny)
+            mag = math.sqrt(x * x + y * y + z * z)
+            ang = math.acos((-SQRT3 * x + y) / (-2.0 * mag)) + math.acos((mag * mag + f * f - g * g) / (2.0 * mag * f))
+        return math.degrees(ang)
+    except (ValueError, ZeroDivisionError):
+        return ANG_ORIG
+
+
+ANG_ORIG = machine_theta(0, GEO_HZ, 0.0, 0.0)   # angulo de cada perna no nivel
+
+
+class PID:
+    """PID por eixo — espelha main/pid.c (derivada no erro + anti-windup)."""
+    def __init__(self, kp, ki, kd, omin, omax):
+        self.kp, self.ki, self.kd = kp, ki, kd
+        self.omin, self.omax = omin, omax
+        self.reset()
+
+    def reset(self):
+        self.integ = 0.0; self.prev = 0.0; self.primed = False
+
+    def update(self, meas, setpoint, dt):
+        if dt <= 0.0: dt = 1e-3
+        err = meas - setpoint
+        deriv = (err - self.prev) / dt if self.primed else 0.0
+        self.prev = err; self.primed = True
+        self.integ += err * dt
+        out = self.kp * err + self.ki * self.integ + self.kd * deriv
+        if out > self.omax:
+            if self.ki: self.integ -= (out - self.omax) / self.ki
+            out = self.omax
+        elif out < self.omin:
+            if self.ki: self.integ -= (out - self.omin) / self.ki
+            out = self.omin
+        return out
+
+
+def plate_z(X, Y, nx, ny, base_z):
+    """Altura do plano inclinado da mesa no ponto local (X,Y)."""
+    nmag = math.sqrt(nx * nx + ny * ny + 1.0)
+    nz = 1.0 / nmag
+    return base_z - (nx * X + ny * Y) / nz
+
 
 # ── Thread leitora serial ────────────────────────────────────────────────────
 
@@ -167,6 +265,21 @@ class App:
 
         # Live
         self.trail = collections.deque(maxlen=TRAIL_LEN)
+
+        # ── Estado BALANCE (simulacao dos motores) ───────────────────────────
+        self.pid_x = PID(KP, KI, KD, -TILT_LIMIT, TILT_LIMIT)
+        self.pid_y = PID(KP, KI, KD, -TILT_LIMIT, TILT_LIMIT)
+        self.sx    = TABLE_W_MM / 2.0     # alvo (setpoint) em mm
+        self.sy    = TABLE_H_MM / 2.0
+        self.ball_mm     = None           # posicao suavizada da bola [x,y] mm
+        self.bal_seen_ts = 0.0            # ultimo instante com bola
+        self.disp_nx = 0.0                # inclinacao exibida (suavizada)
+        self.disp_ny = 0.0
+        self.disp_theta = [ANG_ORIG, ANG_ORIG, ANG_ORIG]
+        self.cam_az    = math.radians(35)
+        self.cam_pitch = math.radians(30)
+        self.cam_scale = 2.2
+        self.bal_t     = None             # timestamp p/ dt do laco de balance
 
         # Maquina de estados
         # SPLASH → CAL_READY → CAL_COLLECTING → CAL_DONE → CAL_READY → ...
@@ -712,6 +825,7 @@ class App:
         y = rp("Y = espelhar Y", C['text'], y, self.f_sm)
         y = rp("G = gravar orientacao", C['save_ok'], y, self.f_sm)
         y = rp("R = limpar trilha", C['dim'], y, self.f_sm)
+        y = rp("B = simular motores 3RPS", C['heading'], y, self.f_sm)
         y = rp("ESC = sair", C['dim'], y, self.f_sm)
 
         # Toast de salvamento
@@ -719,6 +833,209 @@ class App:
             col2 = C['save_ok'] if 'salv' in self.save_msg.lower() else C['bad']
             surf = self.f_sm.render(self.save_msg, True, col2)
             s.blit(surf, (ox, WIN_H - 26))
+
+    # ── BALANCE — simulacao isometrica dos motores ───────────────────────────
+
+    def _raw2mm(self, xr, yr):
+        """raw ADC -> mm, aplicando calibracao + orientacao (swap/flip)."""
+        x_min, x_max, y_min, y_max = self.cal
+        nx = max(0.0, min(1.0, (xr - x_min) / ((x_max - x_min) or 1)))
+        ny = max(0.0, min(1.0, (yr - y_min) / ((y_max - y_min) or 1)))
+        nx, ny = self._orient(nx, ny)
+        return nx * TABLE_W_MM, ny * TABLE_H_MM
+
+    def _iso(self, x, y, z, cx, cy):
+        """Projecao isometrica (vista diagonal de cima). x,y,z em mm centrados."""
+        ca, sa = math.cos(self.cam_az), math.sin(self.cam_az)
+        xr = x * ca - y * sa
+        yr = x * sa + y * ca
+        sp = math.sin(self.cam_pitch)
+        return (int(cx + xr * self.cam_scale),
+                int(cy + (yr * sp - z) * self.cam_scale))
+
+    def _balance_update(self):
+        """Passo de controle + suavizacao (independente do FPS)."""
+        now = time.time()
+        dt = 0.0 if self.bal_t is None else now - self.bal_t
+        self.bal_t = now
+        dt = min(max(dt, 1e-3), 0.05)
+
+        # 1) posicao da bola: alvo real -> suavizado (IIR temporal)
+        if self.touched:
+            tx, ty = self._raw2mm(self.cur_xr, self.cur_yr)
+            if self.ball_mm is None:
+                self.ball_mm = [tx, ty]
+            else:
+                a = 1.0 - math.exp(-dt / BALL_TAU)
+                self.ball_mm[0] += (tx - self.ball_mm[0]) * a
+                self.ball_mm[1] += (ty - self.ball_mm[1]) * a
+            self.bal_seen_ts = now
+
+        present = (self.ball_mm is not None and
+                   (now - self.bal_seen_ts) < PRESENCE_HOLD)
+
+        # 2) controlador (sobre a bola suavizada) -> inclinacao alvo
+        if present:
+            tnx = self.pid_x.update(self.ball_mm[0], self.sx, dt)
+            tny = self.pid_y.update(self.ball_mm[1], self.sy, dt)
+        else:
+            self.pid_x.reset(); self.pid_y.reset()
+            tnx = tny = 0.0
+            if self.ball_mm is not None and (now - self.bal_seen_ts) > 1.2:
+                self.ball_mm = None     # some de vez apos sair
+
+        # 3) inclinacao/motores exibidos: suavizados -> sem salto/flicker
+        a2 = 1.0 - math.exp(-dt / TILT_TAU)
+        self.disp_nx += (tnx - self.disp_nx) * a2
+        self.disp_ny += (tny - self.disp_ny) * a2
+        self.disp_theta = [machine_theta(i, GEO_HZ, self.disp_nx, self.disp_ny)
+                           for i in range(3)]
+        return present
+
+    def _balance(self):
+        present = self._balance_update()
+        s = self.screen
+        s.fill(C['bg'])
+
+        self._t("SIMULACAO DOS MOTORES  —  bola REAL, 3x NEMA 17 simulados",
+                C['heading'], 30, 14, self.f_md)
+
+        nx, ny = self.disp_nx, self.disp_ny
+        hw, hh = TABLE_W_MM / 2.0, TABLE_H_MM / 2.0
+        PANEL_W = 300
+        cx = (WIN_W - PANEL_W) // 2
+        cy = WIN_H // 2 + 70
+
+        # --- base + bielas + braços dos motores ---
+        base_pts, plat_pts = [], []
+        for az in LEG_AZ:
+            base_pts.append((GEO_D * 2.2 * math.cos(az),
+                             GEO_D * 2.2 * math.sin(az), 0.0))
+            px, py = hw * math.cos(az), hh * math.sin(az)
+            plat_pts.append((px, py, plate_z(px, py, nx, ny, PLATE_BASE_Z)))
+
+        for i in range(3):
+            pygame.draw.line(s, C['iso_base'],
+                             self._iso(*base_pts[i], cx, cy),
+                             self._iso(*base_pts[(i + 1) % 3], cx, cy), 2)
+
+        arm_tips = []
+        for i, az in enumerate(LEG_AZ):
+            bx3, by3, _ = base_pts[i]
+            delta = math.radians(self.disp_theta[i] - ANG_ORIG)
+            rad = (math.cos(az), math.sin(az))
+            ax3 = bx3 - rad[0] * GEO_F * math.cos(delta)
+            ay3 = by3 - rad[1] * GEO_F * math.cos(delta)
+            az3 = GEO_F * math.sin(delta) + 10.0
+            bj = self._iso(bx3, by3, 0.0, cx, cy)
+            at = self._iso(ax3, ay3, az3, cx, cy)
+            pj = self._iso(*plat_pts[i], cx, cy)
+            arm_tips.append((at, pj, az))
+            pygame.draw.circle(s, C['iso_base'], bj, 5)
+            pygame.draw.line(s, C['iso_arm'], bj, at, 4)   # braço do motor
+            pygame.draw.line(s, C['iso_leg'], at, pj, 2)   # biela
+
+        # --- tampo inclinado ---
+        quad = [self._iso(X, Y, plate_z(X, Y, nx, ny, PLATE_BASE_Z), cx, cy)
+                for (X, Y) in [(-hw, -hh), (hw, -hh), (hw, hh), (-hw, hh)]]
+        pygame.draw.polygon(s, C['iso_plate'], quad)
+        pygame.draw.polygon(s, C['iso_edge'], quad, 2)
+
+        # grade na superficie
+        for k in range(1, 8):
+            t = k / 8.0
+            X = -hw + t * TABLE_W_MM
+            pygame.draw.line(s, C['iso_grid'],
+                self._iso(X, -hh, plate_z(X, -hh, nx, ny, PLATE_BASE_Z), cx, cy),
+                self._iso(X,  hh, plate_z(X,  hh, nx, ny, PLATE_BASE_Z), cx, cy), 1)
+            Y = -hh + t * TABLE_H_MM
+            pygame.draw.line(s, C['iso_grid'],
+                self._iso(-hw, Y, plate_z(-hw, Y, nx, ny, PLATE_BASE_Z), cx, cy),
+                self._iso( hw, Y, plate_z( hw, Y, nx, ny, PLATE_BASE_Z), cx, cy), 1)
+
+        # alvo
+        tX, tY = self.sx - hw, self.sy - hh
+        tp = self._iso(tX, tY, plate_z(tX, tY, nx, ny, PLATE_BASE_Z), cx, cy)
+        pygame.draw.circle(s, C['iso_target'], tp, 7, 2)
+        pygame.draw.line(s, C['iso_target'], (tp[0] - 9, tp[1]), (tp[0] + 9, tp[1]), 1)
+        pygame.draw.line(s, C['iso_target'], (tp[0], tp[1] - 9), (tp[0], tp[1] + 9), 1)
+
+        # bola (suavizada)
+        if self.ball_mm is not None:
+            bX, bY = self.ball_mm[0] - hw, self.ball_mm[1] - hh
+            bZ = plate_z(bX, bY, nx, ny, PLATE_BASE_Z)
+            sp = self._iso(bX, bY, bZ, cx, cy)
+            bp = self._iso(bX, bY, bZ + 6.0, cx, cy)
+            pygame.draw.circle(s, C['iso_plate2'], sp, 7)      # sombra
+            r = max(7, int(6.0 * self.cam_scale))
+            pygame.draw.circle(s, C['iso_ball'], bp, r)
+            pygame.draw.circle(s, C['iso_ballhi'], (bp[0] - r // 3, bp[1] - r // 3),
+                               max(2, r // 3))
+
+        # rotulos dos motores (por cima de tudo)
+        for i, (at, pj, az) in enumerate(arm_tips):
+            pygame.draw.circle(s, C['iso_arm'], at, 3)
+            lbl = self.f_sm.render(f"{LEG_NAME[i]} {self.disp_theta[i]:.1f}°",
+                                   True, C['iso_arm'])
+            s.blit(lbl, (at[0] + 6, at[1] - 6))
+
+        # ── painel lateral ───────────────────────────────────────────────────
+        self._balance_panel(present, PANEL_W)
+
+    def _balance_panel(self, present, panel_w):
+        s = self.screen
+        rpx = WIN_W - panel_w + 14
+        rpy = 46
+
+        def rp(text, color, y_off, fnt=None):
+            fnt = fnt or self.f_md
+            for line in str(text).split('\n'):
+                surf = fnt.render(line, True, color)
+                s.blit(surf, (rpx, rpy + y_off))
+                y_off += surf.get_height() + 2
+            return y_off
+
+        y = 0
+        y = rp("MOTORES 3RPS", C['heading'], y, self.f_lg) + 6
+        col = C['good'] if present else C['warn']
+        y = rp("BOLA DETECTADA" if present else "SEM BOLA (nivelando)", col, y) + 6
+
+        if self.ball_mm is not None:
+            y = rp(f"Bola X = {self.ball_mm[0]:6.1f} mm", C['text'], y, self.f_sm)
+            y = rp(f"Bola Y = {self.ball_mm[1]:6.1f} mm", C['text'], y, self.f_sm)
+            err = math.hypot(self.ball_mm[0] - self.sx, self.ball_mm[1] - self.sy)
+            y = rp(f"Erro   = {err:6.1f} mm", C['text'], y, self.f_sm) + 6
+        else:
+            y = rp("Bola: --", C['dim'], y, self.f_sm) + 6
+
+        y = rp(f"Alvo X = {self.sx:6.1f} mm", C['iso_target'], y, self.f_sm)
+        y = rp(f"Alvo Y = {self.sy:6.1f} mm", C['iso_target'], y, self.f_sm) + 8
+
+        y = rp("INCLINACAO", C['heading'], y, self.f_sm) + 4
+        y = rp(f"nx = {self.disp_nx:+.3f}", C['text'], y, self.f_sm)
+        y = rp(f"ny = {self.disp_ny:+.3f}", C['text'], y, self.f_sm) + 8
+
+        y = rp("ANGULOS (passos)", C['heading'], y, self.f_sm) + 4
+        for i in range(3):
+            y = rp(f"  {LEG_NAME[i]} = {self.disp_theta[i]:7.2f}°",
+                   C['iso_arm'], y, self.f_sm)
+        y += 10
+
+        y = rp("ORIENTACAO", C['heading'], y, self.f_sm) + 4
+        y = rp(self._orient_str(), C['hint'], y, self.f_sm) + 8
+
+        y = rp("── TECLAS ──", C['dim'], y, self.f_sm)
+        y = rp("WASD = mover alvo", C['text'], y, self.f_sm)
+        y = rp("T/X/Y = orientacao", C['text'], y, self.f_sm)
+        y = rp("G = gravar orientacao", C['save_ok'], y, self.f_sm)
+        y = rp("Q/E = girar  +/- = zoom", C['text'], y, self.f_sm)
+        y = rp("B/ENTER = voltar ao mapa", C['text'], y, self.f_sm)
+        y = rp("ESC = sair", C['dim'], y, self.f_sm)
+
+        if self.save_msg and (time.time() - self.save_ts) < 3.5:
+            col2 = C['save_ok'] if 'salv' in self.save_msg.lower() else C['bad']
+            surf = self.f_sm.render(self.save_msg, True, col2)
+            s.blit(surf, (30, WIN_H - 26))
 
     # ── Logica de calibracao ─────────────────────────────────────────────────
 
@@ -818,6 +1135,37 @@ class App:
                                 self.trail.clear()
                             elif k == pygame.K_g:
                                 self._persist_orientation()
+                            elif k == pygame.K_b:
+                                self.bal_t = None       # zera dt ao entrar
+                                self.state = 'BALANCE'
+
+                        elif self.state == 'BALANCE':
+                            if k in (pygame.K_b, pygame.K_RETURN):
+                                self.state = 'LIVE'
+                            elif k == pygame.K_t:
+                                self.swap_xy = not self.swap_xy
+                            elif k == pygame.K_x:
+                                self.flip_x = not self.flip_x
+                            elif k == pygame.K_y:
+                                self.flip_y = not self.flip_y
+                            elif k == pygame.K_g:
+                                self._persist_orientation()
+                            elif k == pygame.K_q:
+                                self.cam_az -= math.radians(8)
+                            elif k == pygame.K_e:
+                                self.cam_az += math.radians(8)
+                            elif k in (pygame.K_PLUS, pygame.K_EQUALS, pygame.K_KP_PLUS):
+                                self.cam_scale = min(5.0, self.cam_scale * 1.1)
+                            elif k in (pygame.K_MINUS, pygame.K_KP_MINUS):
+                                self.cam_scale = max(1.0, self.cam_scale / 1.1)
+                            elif k == pygame.K_a:
+                                self.sx = max(0.0, self.sx - 8.0)
+                            elif k == pygame.K_d:
+                                self.sx = min(TABLE_W_MM, self.sx + 8.0)
+                            elif k == pygame.K_s:
+                                self.sy = max(0.0, self.sy - 8.0)
+                            elif k == pygame.K_w:
+                                self.sy = min(TABLE_H_MM, self.sy + 8.0)
 
                 # Coleta concluida
                 if self.state == 'CAL_COLLECTING' and len(self.samples) >= SAMPLES_NEEDED:
@@ -831,6 +1179,7 @@ class App:
                     'CAL_DONE':        self._cal_done,
                     'CAL_RESULTS':     self._cal_results,
                     'LIVE':            self._live,
+                    'BALANCE':         self._balance,
                 }
                 draw.get(self.state, lambda: None)()
 

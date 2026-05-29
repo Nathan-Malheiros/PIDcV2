@@ -1,7 +1,7 @@
 {
     "version":            "1.3",
     "project_name":       "ball_balancer",
-    "project_version":    "1",
+    "project_version":    "c8a31ec-dirty",
     "project_path":       "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2",
     "idf_path":           "C:/esp/v6.0.1/esp-idf",
     "build_dir":          "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build",
@@ -1760,12 +1760,12 @@
             "dir": "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main",
             "type": "LIBRARY",
             "lib": "__idf_main",
-            "reqs": [ "esp_driver_gpio", "esp_adc" ],
+            "reqs": [ "esp_driver_gpio", "esp_adc", "esp_timer" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main/main.c", "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main/touch_screen.c" ],
+            "sources": [ "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main/main.c", "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main/touch_screen.c", "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main/kinematics.c", "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main/pid.c", "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main/steppers.c", "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main/control.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {
@@ -3899,7 +3899,7 @@
             "dir": "C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/main",
             "source": "project_components",
             "lib": "__idf_main",
-            "reqs": [ "esp_driver_gpio", "esp_adc" ],
+            "reqs": [ "esp_driver_gpio", "esp_adc", "esp_timer" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],

@@ -20,10 +20,10 @@
 /* ── ADC calibration boundaries (12-bit raw, 0–4095) ────────────────────── */
 /*    Updated via bb_firmware_tool option 8.                                  */
 /*    These shift slightly between power cycles — recalibrate when needed.   */
-#define TOUCH_X_RAW_MIN  2000
-#define TOUCH_X_RAW_MAX  3700
-#define TOUCH_Y_RAW_MIN  1700
-#define TOUCH_Y_RAW_MAX  2600
+#define TOUCH_X_RAW_MIN  552
+#define TOUCH_X_RAW_MAX  3541
+#define TOUCH_Y_RAW_MIN  396
+#define TOUCH_Y_RAW_MAX  3694
 
 /* ── Tuning parameters ───────────────────────────────────────────────────── */
 
@@ -40,8 +40,8 @@
  *   TOUCH_FLIP_X  : mirror X
  *   TOUCH_FLIP_Y  : mirror Y
  */
-#define TOUCH_SWAP_XY  0
-#define TOUCH_FLIP_X   0
+#define TOUCH_SWAP_XY  1
+#define TOUCH_FLIP_X   1
 #define TOUCH_FLIP_Y   0
 
 /*

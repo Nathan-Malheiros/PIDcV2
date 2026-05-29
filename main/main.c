@@ -4,8 +4,18 @@
 #include "freertos/task.h"
 #include "esp_log.h"
 #include "touch_screen.h"
+#include "control.h"
 
-static const char *TAG = "main";
+/* ── Firmware mode ───────────────────────────────────────────────────────────
+ *   BB_MODE_MAPPING : read-only touch mapping (raw + mm telemetry, no motors).
+ *   BB_MODE_CONTROL : full balancing loop (PID + 3RPS kinematics + steppers).
+ * Override at build time with  -DBB_MODE=BB_MODE_MAPPING  if you need to remap.
+ */
+#define BB_MODE_MAPPING  0
+#define BB_MODE_CONTROL  1
+#ifndef BB_MODE
+#define BB_MODE  BB_MODE_CONTROL
+#endif
 
 /*
  * Serial output protocol (parsed by tools/visualizer.py):
@@ -21,6 +31,10 @@ static const char *TAG = "main";
  *       Move the ball to all four corners to capture the full range,
  *       then enter these values in bb_firmware_tool option 8 (Calibracao).
  */
+
+#if BB_MODE == BB_MODE_MAPPING
+
+static const char *TAG = "main";
 
 #define SAMPLE_PERIOD_MS    20     /* 50 Hz */
 #define CAL_HINT_MS       5000     /* print calibration hint every 5 s */
@@ -51,13 +65,10 @@ static void cal_obs_update(cal_obs_t *c, int32_t xr, int32_t yr)
     c->has_data = true;
 }
 
-/* ── Entry point ─────────────────────────────────────────────────────────── */
+/* ── Touch mapping loop (BB_MODE_MAPPING) ──────────────────────────────────── */
 
-void app_main(void)
+static void mapping_loop(void)
 {
-    /* Unbuffered stdout so every printf reaches the serial monitor immediately */
-    setvbuf(stdout, NULL, _IONBF, 0);
-
     ESP_LOGI(TAG, "Ball Balancer — Touch Mapping Mode");
     ESP_LOGI(TAG, "Screen: %.0f x %.0f mm", TOUCH_WIDTH_MM, TOUCH_HEIGHT_MM);
     ESP_LOGI(TAG, "Cal constants:  X[%d-%d]  Y[%d-%d]",
@@ -118,4 +129,20 @@ void app_main(void)
 
         vTaskDelayUntil(&last_wake, pdMS_TO_TICKS(SAMPLE_PERIOD_MS));
     }
+}
+
+#endif /* BB_MODE == BB_MODE_MAPPING */
+
+/* ── Entry point ─────────────────────────────────────────────────────────── */
+
+void app_main(void)
+{
+    /* Unbuffered stdout so every printf reaches the serial monitor immediately */
+    setvbuf(stdout, NULL, _IONBF, 0);
+
+#if BB_MODE == BB_MODE_CONTROL
+    control_run();      /* never returns */
+#else
+    mapping_loop();     /* never returns */
+#endif
 }

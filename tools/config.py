@@ -21,8 +21,8 @@ SCREEN_H_MM = 141.0   # altura      (eixo Y, baixo -> cima)
 # ── Orientacao / mapeamento dos eixos ────────────────────────────────────────
 # Ajuste ate a bola na tela fisica bater com o ponto na tela do programa.
 # Os tres juntos cobrem as 8 orientacoes possiveis (4 rotacoes x espelho).
-SWAP_XY = False   # troca os eixos X <-> Y   (rotaciona 90 graus)
-FLIP_X  = False   # espelha horizontalmente
+SWAP_XY = True   # troca os eixos X <-> Y   (rotaciona 90 graus)
+FLIP_X  = True   # espelha horizontalmente
 FLIP_Y  = False   # espelha verticalmente
 
 # ── Deteccao ─────────────────────────────────────────────────────────────────
