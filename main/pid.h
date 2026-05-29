@@ -19,6 +19,8 @@ typedef struct {
     float integ;              /* integral accumulator */
     float prev_err;           /* error from the previous update */
     bool  primed;             /* false until the first update seeds prev_err */
+    float d_tau;              /* time-constant do filtro do derivativo (s), 0=off */
+    float d_lpf;              /* estado do filtro passa-baixa do derivativo */
 } pid_t;
 
 void  pid_init(pid_t *p, float kp, float ki, float kd, float out_min, float out_max);

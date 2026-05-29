@@ -5,17 +5,33 @@
 #include "esp_rom_sys.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include <math.h>
 
-#define TICK_PERIOD_US   100          /* 10 kHz step engine */
-#define STEP_PULSE_US      3          /* STEP high time (drivers need ~1-2 us) */
+/* ── Step engine ────────────────────────────────────────────────────────────
+ * 10 kHz esp_timer integra um perfil de velocidade TRAPEZOIDAL por motor
+ * (estilo AccelStepper, a base do projeto): cada eixo acelera ate max_speed e
+ * desacelera a tempo de PARAR exatamente no alvo (v_lim = sqrt(2*a*dist)).
+ * Isso da movimento suave e evita perda de passos por partida brusca — o
+ * firmware antigo movia a velocidade CONSTANTE, sem rampa.
+ */
+#define TICK_PERIOD_US   100          /* 10 kHz */
+#define TICK_DT          (TICK_PERIOD_US / 1.0e6f)
+#define STEP_PULSE_US      3          /* STEP em nivel alto (drivers: ~1-2 us) */
+#define DIR_SETUP_US       3          /* tempo DIR->STEP apos trocar de sentido */
+
+#define DEFAULT_MAX_SPEED  1000.0f    /* steps/s */
+#define DEFAULT_ACCEL      8000.0f    /* steps/s^2 */
 
 typedef struct {
     int   step_pin;
     int   dir_pin;
-    volatile long  current;           /* current absolute position (steps) */
-    volatile long  target;            /* desired absolute position (steps)  */
-    volatile int64_t interval_us;     /* min us between steps (1e6 / speed)  */
-    int64_t last_step_us;
+    volatile long  current;           /* posicao absoluta atual (steps) */
+    volatile long  target;            /* posicao absoluta desejada (steps) */
+    float          max_speed;         /* teto de velocidade (steps/s) */
+    float          accel;             /* aceleracao (steps/s^2) */
+    float          vel;               /* velocidade atual com sinal (steps/s) */
+    float          accum;             /* acumulador fracionario de passo */
+    int            last_dir;          /* ultimo sentido aplicado ao pino DIR */
 } stepper_t;
 
 static stepper_t s_mot[STEPPER_COUNT] = {
@@ -39,42 +55,76 @@ static void out_pin(int pin)
     gpio_set_level(pin, 0);
 }
 
-/* esp_timer callback (TASK dispatch): step every motor that is due. */
+/* Emite um pulso de passo, respeitando o setup-time do pino DIR. */
+static inline void emit_step(stepper_t *m, int dir)
+{
+    if (dir != m->last_dir) {
+        gpio_set_level(m->dir_pin, dir > 0 ? 1 : 0);
+        esp_rom_delay_us(DIR_SETUP_US);     /* DIR precisa estabilizar antes do STEP */
+        m->last_dir = dir;
+    }
+    gpio_set_level(m->step_pin, 1);
+    esp_rom_delay_us(STEP_PULSE_US);
+    gpio_set_level(m->step_pin, 0);
+}
+
+/* esp_timer callback (10 kHz): integra o perfil de cada motor. */
 static void step_engine(void *arg)
 {
-    int64_t now = esp_timer_get_time();
-
     for (int i = 0; i < STEPPER_COUNT; i++) {
         stepper_t *m = &s_mot[i];
-        long cur = m->current;
-        long tgt = m->target;
-        if (cur == tgt || m->interval_us <= 0) continue;
-        if ((now - m->last_step_us) < m->interval_us) continue;
 
-        int dir = (tgt > cur) ? 1 : -1;
-        gpio_set_level(m->dir_pin, dir > 0 ? 1 : 0);
+        long dist = m->target - m->current;
 
-        gpio_set_level(m->step_pin, 1);
-        esp_rom_delay_us(STEP_PULSE_US);
-        gpio_set_level(m->step_pin, 0);
+        if (dist == 0) {
+            /* chegou — para de vez (evita "dithering" de 1 passo no alvo) */
+            m->vel = 0.0f;
+            m->accum = 0.0f;
+            continue;
+        }
 
-        m->current = cur + dir;
-        m->last_step_us = now;
+        /* velocidade da qual ainda da pra frear a tempo (v^2 = 2*a*d) */
+        float v_lim  = sqrtf(2.0f * m->accel * (float)labs(dist));
+        float cruise = m->max_speed < v_lim ? m->max_speed : v_lim;
+        float v_des  = (dist > 0) ? cruise : -cruise;
+
+        /* rampa de velocidade limitada pela aceleracao */
+        float dv = m->accel * TICK_DT;
+        if (m->vel < v_des)      m->vel = (m->vel + dv < v_des) ? m->vel + dv : v_des;
+        else if (m->vel > v_des) m->vel = (m->vel - dv > v_des) ? m->vel - dv : v_des;
+
+        /* integra a posicao; emite passos quando o acumulador cruza 1 */
+        m->accum += m->vel * TICK_DT;
+        while (m->accum >= 1.0f) {
+            emit_step(m, +1);
+            m->current += 1;
+            m->accum   -= 1.0f;
+            if (m->current == m->target) { m->accum = 0.0f; break; }
+        }
+        while (m->accum <= -1.0f) {
+            emit_step(m, -1);
+            m->current -= 1;
+            m->accum   += 1.0f;
+            if (m->current == m->target) { m->accum = 0.0f; break; }
+        }
     }
 }
 
 void steppers_init(void)
 {
     out_pin(STEPPER_EN_PIN);
-    gpio_set_level(STEPPER_EN_PIN, 1);   /* start disabled (active LOW) */
+    gpio_set_level(STEPPER_EN_PIN, 1);   /* comeca desabilitado (ativo LOW) */
 
     for (int i = 0; i < STEPPER_COUNT; i++) {
         out_pin(s_mot[i].step_pin);
         out_pin(s_mot[i].dir_pin);
-        s_mot[i].current      = 0;
-        s_mot[i].target       = 0;
-        s_mot[i].interval_us  = 0;
-        s_mot[i].last_step_us = 0;
+        s_mot[i].current   = 0;
+        s_mot[i].target    = 0;
+        s_mot[i].max_speed = DEFAULT_MAX_SPEED;
+        s_mot[i].accel     = DEFAULT_ACCEL;
+        s_mot[i].vel       = 0.0f;
+        s_mot[i].accum     = 0.0f;
+        s_mot[i].last_dir  = 0;
     }
 
     const esp_timer_create_args_t targs = {
@@ -87,17 +137,19 @@ void steppers_init(void)
 
 void steppers_enable(bool on)
 {
-    gpio_set_level(STEPPER_EN_PIN, on ? 0 : 1);  /* active LOW */
+    gpio_set_level(STEPPER_EN_PIN, on ? 0 : 1);  /* ativo LOW */
 }
 
 void stepper_set_max_speed(int idx, float steps_per_sec)
 {
     if (idx < 0 || idx >= STEPPER_COUNT) return;
-    if (steps_per_sec <= 0.0f) {
-        s_mot[idx].interval_us = 0;
-    } else {
-        s_mot[idx].interval_us = (int64_t)(1e6f / steps_per_sec);
-    }
+    s_mot[idx].max_speed = (steps_per_sec > 0.0f) ? steps_per_sec : 0.0f;
+}
+
+void stepper_set_acceleration(int idx, float steps_per_sec2)
+{
+    if (idx < 0 || idx >= STEPPER_COUNT) return;
+    s_mot[idx].accel = (steps_per_sec2 > 0.0f) ? steps_per_sec2 : DEFAULT_ACCEL;
 }
 
 void stepper_move_to(int idx, long abs_steps)

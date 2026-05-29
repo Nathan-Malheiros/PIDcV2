@@ -5,8 +5,8 @@
 68297	69115	8017052456936203	esp-idf/esp_hal_security/CMakeFiles/__idf_esp_hal_security.dir/sha_hal.c.obj	af4bb1d76ed0c881
 87865	88790	8017052652606648	esp-idf/esp_blockdev_util/libesp_blockdev_util.a	9cffe67ec0d55a50
 46665	47163	8017052240601197	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_th.c.obj	7ef89b259f044349
-31487	32291	8017052088835920	esp-idf/nvs_flash/libnvs_flash.a	5cd5955213fedff7
 2958	4438	8017051803545641	esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/gdma/adc_dma.c.obj	fa53b42d51bfa852
+31487	32291	8017052088835920	esp-idf/nvs_flash/libnvs_flash.a	5cd5955213fedff7
 392	1077	8017051777881092	esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/lib/http_utils.c.obj	899304ce8b809c8
 36042	37065	8017052134385445	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/esp_clk_tree.c.obj	8def2de2ab805481
 3214	5930	8017051806115161	esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/esp_tls.c.obj	9c6df17d2a3054f9
@@ -16,6 +16,7 @@
 1971	3214	8017051793681750	esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/i2s_platform.c.obj	96b14ae0268f37a4
 5642	6599	8017051830390340	esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32s3/esp_coex_adapter.c.obj	61e8256b535fadc9
 318	1606	8017051777126766	esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/src/httpd_parse.c.obj	60f3450e6f7a6475
+323	34421	8017953870434449	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/rt/cmake_install.cmake	87a4a5fe4b8da9f6
 167	293	8017051776770221	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/memory.ld	4de0a3327a214eac
 167	293	8017051776770221	esp-idf/esp_system/ld/memory.ld	4de0a3327a214eac
 64007	64145	8017052414021754	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/libeverest.a	87fdbbb97d74d7e4
@@ -36,6 +37,7 @@
 17465	18805	8017051948621091	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/memp.c.obj	c6d27faafceddbc3
 356	1540	8017051777526680	esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/src/util/ctrl_sock.c.obj	89f072f730d6ba36
 32907	33785	8017052103041129	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/open_memstream.c.obj	ecf8905938ecce26
+323	34421	8017953870286868	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/perfmon/cmake_install.cmake	87a4a5fe4b8da9f6
 1526	4271	8017051789223515	esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/transport_ws.c.obj	4fbc49d60a9b8bff
 28826	30278	8017052062218908	esp-idf/esp_phy/libesp_phy.a	813f41bcc8cb21b1
 42107	44000	8017052195027902	esp-idf/esp_hw_support/libesp_hw_support.a	6d671bed8fe727a
@@ -47,7 +49,7 @@
 308	1770	8017051777049534	esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/src/esp_https_ota.c.obj	62c4389e7865a063
 40123	41141	8017052175197338	esp-idf/esp_libc/libesp_libc.a	dbd7e1ac36b75274
 22818	23914	8017052002148245	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/port/hooks/lwip_default_hooks.c.obj	2e30808e7e00481a
-344	386	8017073684673015	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+368	402	8017938451066875	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
 36450	37304	8017052138474392	esp-idf/esp_ringbuf/libesp_ringbuf.a	92abbefbef46d1a2
 1450	2871	8017051788475338	esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/transport_socks_proxy.c.obj	51e2fa01e48b5412
 37297	38564	8017052146929218	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_event.c.obj	b1a871f492fc568
@@ -58,16 +60,17 @@
 330	1987	8017051777268151	esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/src/httpd_txrx.c.obj	15439895c9564cf
 36469	37432	8017052138654925	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_modem.c.obj	4102e0a57aab816c
 8626	9821	8017051860229729	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha384-tlsprf.c.obj	4b280725feba71c7
-38020	39141	8017052154169461	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/chip_info.c.obj	fa6cab89f514aba2
-4645	5166	8017051820407683	esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/src/port/xtensa/xt_debugexception.S.obj	a3472a600a6e227b
-44894	45567	8017052222911911	esp-idf/esp_hal_touch_sens/libesp_hal_touch_sens.a	d4c5e99abb6e7ea2
 9077	10111	8017051864737175	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_common/eap_wsc_common.c.obj	f2befd67a217e1b5
-34484	36190	8017052118807481	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/esp_additions/idf_additions.c.obj	5b18bf3abe516fa4
+44894	45567	8017052222911911	esp-idf/esp_hal_touch_sens/libesp_hal_touch_sens.a	d4c5e99abb6e7ea2
+4645	5166	8017051820407683	esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/src/port/xtensa/xt_debugexception.S.obj	a3472a600a6e227b
+38020	39141	8017052154169461	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/chip_info.c.obj	fa6cab89f514aba2
 14862	15472	8017051922586694	esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/esp_netif_objects.c.obj	9c5643052093e625
+34484	36190	8017052118807481	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/esp_additions/idf_additions.c.obj	5b18bf3abe516fa4
 38688	40443	8017052160849005	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/esp_memprot.c.obj	49dc06c8de2f3277
 71286	73132	8017052486835319	esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/src/gpspi/spi_common.c.obj	a142cf8f6e06424c
 199	2089	8017051778141855	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/partition_table/partition-table.bin	b9f5a9f7a98cacca
 61086	62384	8017052384833999	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_mac.c.obj	3d10ff7993e6c8b8
+323	34421	8017953852811080	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/pkgconfig/cmake_install.cmake	87a4a5fe4b8da9f6
 23915	25503	8017052013110322	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/apps/dhcpserver/dhcpserver.c.obj	d7fab642b5e67506
 199	2089	8017051778141855	partition_table/partition-table.bin	b9f5a9f7a98cacca
 3246	4428	8017051806430244	esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/esp_tls_platform_port.c.obj	574955a90585ef45
@@ -83,6 +86,7 @@
 41563	42264	8017052189582231	esp-idf/log/CMakeFiles/__idf_log.dir/src/log_level/tag_log_level/cache/log_binary_heap.c.obj	bc5a9b34be431d47
 1187	2958	8017051785837597	esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/transport_internal.c.obj	f700605c074ac2ce
 86227	86883	8017052636238387	esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/xtensa_perfmon_apis.c.obj	784d39e62f4b9cd1
+323	34421	8017953858194980	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/app_trace/cmake_install.cmake	87a4a5fe4b8da9f6
 24888	25621	8017052022842112	esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/esp32s3/phy_init_data.c.obj	e96d3164a6688d27
 1093	3202	8017051784912805	esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/transport_ssl.c.obj	4f0494a12c861923
 15472	16660	8017051928693014	esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/lwip/netif/esp_pbuf_ref.c.obj	f4ff86a013bf0444
@@ -93,7 +97,7 @@
 4993	6142	8017051823902149	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default.c.obj	ed9be968d0443307
 1987	3246	8017051793839716	esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/adc_oneshot.c.obj	e0a00cbe9634cbac
 40584	41466	8017052179808412	esp-idf/heap/CMakeFiles/__idf_heap.dir/heap_caps_init.c.obj	2b94569b4d00778
-5421	5887	8017073735444301	esp-idf/main/libmain.a	904158e8003b6402
+1793	1896	8017895484641432	esp-idf/main/libmain.a	143e573d57b4b4a6
 5166	5943	8017051825628734	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default_ap.c.obj	eb467798af7445e3
 70706	71286	8017052481035328	esp-idf/esp_hal_sd/CMakeFiles/__idf_esp_hal_sd.dir/esp32s3/sdmmc_periph.c.obj	e2e8096ac5bc07d
 39980	40676	8017052173763570	esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/esp32s3/sdm_periph.c.obj	794c68ec24d7e217
@@ -115,6 +119,7 @@
 70063	71380	8017052474594333	esp-idf/esp_stdio/CMakeFiles/__idf_esp_stdio.dir/stdio_vfs.c.obj	c11f42f90c6c8077
 3449	4370	8017051808459651	esp-idf/esp_hal_i2c/CMakeFiles/__idf_esp_hal_i2c.dir/i2c_hal.c.obj	3ecfd98a74ab929e
 56878	58485	8017052342744671	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/base64.c.obj	790c617e7fbd5aba
+323	34421	8017953859672651	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/lwip/cmake_install.cmake	87a4a5fe4b8da9f6
 84780	85960	8017052621770628	esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl.c.obj	6650cd773cd5a0aa
 11238	12672	8017051886339817	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/uuid.c.obj	c5ab02239711f00c
 46498	47348	8017052238954246	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_mxic_opi.c.obj	91d886fe922c5876
@@ -127,9 +132,11 @@
 59993	61376	8017052373891162	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/pk_wrap.c.obj	fe4d2496c5509c89
 2872	4740	8017051802675814	esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/adc_continuous.c.obj	a93deb00a8ef1056
 42700	44160	8017052200948782	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/esp_err.c.obj	fef76679e78e59aa
+323	34421	8017953869318949	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_lcd/cmake_install.cmake	87a4a5fe4b8da9f6
 17851	19559	8017051952468550	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/raw.c.obj	22446a3f3a41a97b
 3236	4763	8017051806319685	esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/esp_tls_error_capture.c.obj	74262cdba8b14f8c
 66280	67336	8017052436774284	esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/src/init.c.obj	83ddcef765927c7c
+323	34421	8017953870630871	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/ulp/cmake_install.cmake	87a4a5fe4b8da9f6
 42150	42876	8017052195452197	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_serial_output.c.obj	a72eea3dc56001d3
 10274	11304	8017051876706816	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_fast_common.c.obj	3a445d528f82b1c3
 13441	15322	8017051908379178	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/crypto/crypto_mbedtls.c.obj	46e1f4b0dc87657a
@@ -143,9 +150,10 @@
 13744	14862	8017051911402805	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/crypto/fastpsk.c.obj	bbdc38c71823f305
 3352	4993	8017051807487330	esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/http_parser.c.obj	7481aed172f06537
 39766	40399	8017052171626273	esp-idf/esp_hal_usb/CMakeFiles/__idf_esp_hal_usb.dir/usb_wrap_hal.c.obj	75a0aed11c2e0fe9
+323	34421	8017953865531143	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_rmt/cmake_install.cmake	87a4a5fe4b8da9f6
 20428	21526	8017051978246987	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/bridgeif_fdb.c.obj	61fa432d8d277473
 4806	6216	8017051822040331	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig.c.obj	9c935e82ebbc7cd0
-115	344	8017073682386224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+151	367	8017938448901192	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
 4370	5705	8017051817653441	esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/src/gdbstub.c.obj	e1de3b7e6c3952e1
 15677	16678	8017051930723391	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/api/err.c.obj	ca54ccf23a9ec2f0
 4403	5420	8017051817988247	esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/src/gdbstub_transport.c.obj	2a7db1b6e9070972
@@ -183,8 +191,10 @@
 81151	82349	8017052585480239	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_encoder_bytes.c.obj	40d49ffe8315e921
 5421	6954	8017051828174659	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/esp32s3/esp_adapter.c.obj	27c2ab940c33b2a0
 45650	46498	8017052230474500	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32s3/apb_backup_dma.c.obj	92b8f3e356cb3e50
+323	34421	8017953870761172	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/main/cmake_install.cmake	87a4a5fe4b8da9f6
 9515	10865	8017051869119275	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_mschapv2.c.obj	d03014bac8abe751
 61071	62292	8017052384679722	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_hash.c.obj	a6d9a0d2a60962ba
+323	34421	8017953863133770	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_bitscrambler/cmake_install.cmake	87a4a5fe4b8da9f6
 5556	7161	8017051829528724	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig_ack.c.obj	9b3cd457bfea29b3
 88750	89464	8017052661468539	esp-idf/esp_eth/libesp_eth.a	f0dfa99431be5b95
 40838	41898	8017052182337377	esp-idf/log/CMakeFiles/__idf_log.dir/src/os/log_lock.c.obj	5a7cb32ae4f73775
@@ -193,8 +203,10 @@
 41479	42180	8017052188745059	esp-idf/log/CMakeFiles/__idf_log.dir/src/log.c.obj	b783c60ecc63ff65
 5943	7544	8017051833402336	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/ap_config.c.obj	b39326211aaf18a7
 60682	61844	8017052380782322	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_aead.c.obj	61282d4fed753ddb
+323	34421	8017953863515376	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_dac/cmake_install.cmake	87a4a5fe4b8da9f6
 21170	22239	8017051985659733	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/ipcp.c.obj	7f451434314337ea
 6817	7622	8017051842133227	esp-idf/esp_adc/libesp_adc.a	7ec60d3b4f2474bb
+323	34421	8017953859913548	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_netif/cmake_install.cmake	87a4a5fe4b8da9f6
 6450	7776	8017051838467938	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/sta_info.c.obj	9d7dbb598238c0b2
 6364	7790	8017051837615985	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/pmksa_cache_auth.c.obj	ed7c40d4b19a4c50
 6216	7857	8017051836130583	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/wpa_auth_ie.c.obj	73450ba1dd9ab8a3
@@ -206,19 +218,23 @@
 76346	76989	8017052537423895	esp-idf/esp_hal_lcd/CMakeFiles/__idf_esp_hal_lcd.dir/lcd_hal.c.obj	b63f5b542c256779
 6199	8146	8017051835961472	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/wpa_auth.c.obj	3ea559048b2ba2fe
 80382	81743	8017052577775800	esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/src/pulse_cnt.c.obj	f0d8583103200421
-109	5421	8017073682321090	esp-idf/main/CMakeFiles/__idf_main.dir/touch_screen.c.obj	d45705a72b710fc6
+274	1774	8017895469403114	esp-idf/main/CMakeFiles/__idf_main.dir/touch_screen.c.obj	3eafd622bf4db1bf
 6955	8243	8017051843520222	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/common/dragonfly.c.obj	6441623a142c28ec
+323	34421	8017953853293232	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_timg/cmake_install.cmake	87a4a5fe4b8da9f6
 33768	34645	8017052111644471	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/timers.c.obj	3ada963d7413a8c5
 69135	70359	8017052465324212	esp-idf/esp_hal_mspi/CMakeFiles/__idf_esp_hal_mspi.dir/spi_flash_hal_gpspi.c.obj	e734afb25f912a1b
 6599	8420	8017051839961856	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/ieee802_11.c.obj	a5bb79201678c634
+323	34421	8017953849888923	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esptool_py/cmake_install.cmake	87a4a5fe4b8da9f6
 7235	8626	8017051846317360	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/bitfield.c.obj	49a91e283e0478
 42657	43359	8017052200521977	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_cache_writeback_esp32s3.S.obj	e2340854d5193d95
 11894	13509	8017051892897591	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/wps/wps_attr_parse.c.obj	493a6ce42463d8bd
 7622	8761	8017051850191018	esp-idf/esp-tls/libesp-tls.a	a4432a4b88c81bc3
-5887	16371	8017073843885471	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+1896	13869	8017895604469233	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
 80746	82059	8017052581428885	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_common.c.obj	48bee0cff280350d
+323	34421	8017953861470678	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cmock/cmake_install.cmake	87a4a5fe4b8da9f6
 7544	8814	8017051849416002	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/ccmp.c.obj	6e1016db682f8058
 7467	8867	8017051848625654	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-siv.c.obj	e7a34356ef522748
+323	34421	8017953860778132	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_wifi/cmake_install.cmake	87a4a5fe4b8da9f6
 38564	39778	8017052159607043	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/sar_periph_ctrl.c.obj	b61180abd4e91b6f
 24372	25628	8017052017679698	esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/src/phy_override.c.obj	b22da4c1bed00071
 53775	55419	8017052311721651	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls12_client.c.obj	ca957a5514e781e3
@@ -231,11 +247,13 @@
 7777	9088	8017051851736312	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-gcm.c.obj	2a0e6eae6f59d713
 7790	9192	8017051851877092	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/crypto_ops.c.obj	1a4081392823766e
 8048	9318	8017051854443806	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/dh_groups.c.obj	843b279e4c4d383
+323	34421	8017953861172075	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bt/cmake_install.cmake	87a4a5fe4b8da9f6
 59430	60002	8017052368254577	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/md5.c.obj	3fac248d50c94c9a
 8147	9333	8017051855440056	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/ms_funcs.c.obj	e9fc3197df55e5de
 17833	19241	8017051952287185	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/pbuf.c.obj	b4a8b03aeb736b6
 79748	81656	8017052571443041	esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/src/ledc.c.obj	e1dcbc19be521ace
 8761	9445	8017051861578884	esp-idf/http_parser/libhttp_parser.a	22884a8c8e0cf747
+323	34421	8017953864258871	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ledc/cmake_install.cmake	87a4a5fe4b8da9f6
 8243	9514	8017051856391610	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha1-tlsprf.c.obj	c43999c4c5d3978e
 8421	9841	8017051858163153	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha256-tlsprf.c.obj	bdae7090486506a5
 79467	80136	8017052568633242	esp-idf/esp_hal_clock/libesp_hal_clock.a	8768e7d4352ac99e
@@ -255,6 +273,7 @@
 76512	77813	8017052539086846	esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/common/protocomm.c.obj	5ce936b64165c802
 9445	10339	8017051868422499	esp-idf/esp_hal_i2c/libesp_hal_i2c.a	f359fc6df8b266b8
 14641	15377	8017051920380340	esp-idf/esp_coex/libesp_coex.a	58194ae296a3994b
+323	34421	8017953867179894	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_tsens/cmake_install.cmake	87a4a5fe4b8da9f6
 9065	10399	8017051864613323	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha1-tprf.c.obj	a9ffa8955d457f72
 24385	25167	8017052017813350	esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/src/lib_printf.c.obj	2105709ee2823c35
 9333	10457	8017051867285171	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_common.c.obj	9765f749f2882e1d
@@ -284,7 +303,7 @@
 10732	11893	8017051881277843	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/rsn_supp/wpa_ie.c.obj	598b68509d7a80c9
 42401	43602	8017052197962109	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_longjmp.S.obj	5990f3903ac080d2
 47209	48117	8017052246060806	esp-idf/esp_hal_gpio/libesp_hal_gpio.a	c04a63301a53fb3f
-115	344	8017073682386224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+151	367	8017938448901192	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
 11088	11914	8017051884828993	esp-idf/esp_wifi/libesp_wifi.a	ea818a8ef3f68426
 30685	31665	8017052080816666	esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/ets_timer_legacy.c.obj	d243e1eefce9c041
 10458	11928	8017051878544938	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/rsn_supp/pmksa_cache.c.obj	8c6987796c1c74d4
@@ -292,6 +311,7 @@
 28657	29605	8017052060545408	esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/default_event_loop.c.obj	50d7d98699671ad5
 75091	76366	8017052524882427	esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/i2c_common.c.obj	a4d255df81544ca0
 10814	12003	8017051882098360	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/base64.c.obj	433eba00bcf1cf82
+323	34421	8017953852796013	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/cmake_install.cmake	87a4a5fe4b8da9f6
 39126	39884	8017052165227982	esp-idf/esp_hal_touch_sens/CMakeFiles/__idf_esp_hal_touch_sens.dir/touch_sens_hal.c.obj	5267b63377323b0c
 10866	12022	8017051882618526	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/common.c.obj	90cdf5bf4418e670
 59413	60502	8017052368093270	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/md.c.obj	af129757ee6b7d41
@@ -302,6 +322,7 @@
 70359	70884	8017052477548154	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_intr_asm.S.obj	dae0027aadaa255b
 10559	12369	8017051879552660	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/rsn_supp/wpa.c.obj	d230eb205de0f3b5
 77881	78783	8017052552777606	esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/WL_Ext_Perf.cpp.obj	79668a3d9cc38cb7
+323	34421	8017953853131909	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake	87a4a5fe4b8da9f6
 43359	44435	8017052207560998	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/system_time.c.obj	70f330676603840
 11133	12532	8017051885283494	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/ext_password.c.obj	19c005d459ac40a1
 45160	45982	8017052225560703	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/debug_helpers.c.obj	a11b3095c28bc1de
@@ -314,8 +335,11 @@
 31508	32602	8017052089049146	esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread_rwlock.c.obj	a50f7815a8682946
 53450	54754	8017052308470212	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_ticket.c.obj	950c08fd319d83a4
 86581	87724	8017052639779273	esp-idf/rt/CMakeFiles/__idf_rt.dir/FreeRTOS_POSIX_utils.c.obj	f3b64cf9fc06c509
+323	34421	8017953849793527	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_security/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953864905771	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_mcpwm/cmake_install.cmake	87a4a5fe4b8da9f6
 37118	37806	8017052145149777	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_usb.c.obj	477af24df1b82d52
 13036	14556	8017051904326998	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_wpa3.c.obj	1b724dd5b4d6ac3
+323	34421	8017953856340212	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_touch_sens/cmake_install.cmake	87a4a5fe4b8da9f6
 41351	41911	8017052187484439	esp-idf/log/CMakeFiles/__idf_log.dir/src/log_format_text.c.obj	2ca2e4c624f47164
 53344	55514	8017052307405173	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_msg.c.obj	f2b4873b7b31ea25
 84942	85787	8017052623371843	esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/proto-c/esp_local_ctrl.pb-c.c.obj	3afa676a3e17b6c4
@@ -348,6 +372,7 @@
 13343	14641	8017051907397612	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_owe.c.obj	503bdf905a41cd25
 13356	14725	8017051907522636	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_hostap.c.obj	ba7a2aa177386c77
 75986	77827	8017052533829740	esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/src/sd_host_sdmmc.c.obj	3046d5c59010c029
+323	34421	8017953860542627	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/wpa_supplicant/cmake_install.cmake	87a4a5fe4b8da9f6
 65017	66048	8017052424132995	esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/pm_trace.c.obj	a9c98f4841402d85
 14185	15289	8017051915804269	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/rc4.c.obj	478e7fd7ac228c4f
 14518	15404	8017051919139212	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-wrap.c.obj	64aeb65b3be65879
@@ -380,6 +405,8 @@
 41510	42099	8017052189061177	esp-idf/log/CMakeFiles/__idf_log.dir/src/os/log_write.c.obj	e645e8f84e56e84c
 21618	22818	8017051990133120	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/lcp.c.obj	252487ee1d9481ca
 15701	16808	8017051930961382	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/api/if_api.c.obj	66cbe85979ddcc9e
+323	34421	8017953851703890	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953856226224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_pmu/cmake_install.cmake	87a4a5fe4b8da9f6
 55569	57721	8017052329644504	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509.c.obj	3b9619e9089a9a73
 15840	16873	8017051932370720	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/api/netbuf.c.obj	7405a6eb07c62f6a
 15585	17249	8017051929816150	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/api/api_lib.c.obj	1d8bbd46cd3514c0
@@ -431,6 +458,7 @@
 19738	20634	8017051971343858	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv6/dhcp6.c.obj	5037d70b63985f9f
 48229	49856	8017052256258286	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp_image_format.c.obj	48f8d72293c509ac
 32521	33749	8017052099175594	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/time.c.obj	547bd358fd6367f0
+323	34421	8017953870630871	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/spiffs/cmake_install.cmake	87a4a5fe4b8da9f6
 19382	20733	8017051967777363	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv4/ip4_addr.c.obj	10ae31f15c5be9fb
 31262	32628	8017052086589349	esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread.c.obj	3fc5b46d08156b1d
 71943	73228	8017052493387294	esp-idf/console/CMakeFiles/__idf_console.dir/linenoise/linenoise.c.obj	cd842b9cef7534c4
@@ -438,6 +466,7 @@
 19863	20809	8017051972597756	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv6/inet6.c.obj	70cee32e16d873de
 20257	21096	8017051976535995	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/bridgeif.c.obj	3600117a48bd1a92
 20027	20979	8017051974229295	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv6/ip6_frag.c.obj	7e0de1271b815f1f
+323	34421	8017953868792422	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_http_client/cmake_install.cmake	87a4a5fe4b8da9f6
 19848	21015	8017051972444895	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv6/icmp6.c.obj	99e29bce61b13202
 27749	28656	8017052051457505	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_bootloader_xts_aes.c.obj	30a801f265767446
 52008	53122	8017052294047619	esp-idf/esp_rom/libesp_rom.a	4a42f277b1e79967
@@ -445,10 +474,12 @@
 20132	21107	8017051975282175	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv6/mld6.c.obj	26f314cf22da221f
 20233	21169	8017051976296121	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ethernet.c.obj	1c3170c60fb138b6
 34896	36181	8017052122921419	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/clk_ctrl_os.c.obj	60c19542beb790b
+323	34421	8017953853526238	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_rtc_timer/cmake_install.cmake	87a4a5fe4b8da9f6
 31434	32587	8017052088290403	esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread_local_storage.c.obj	24805a1e7879ec20
 20634	21618	8017051980314707	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/slipif.c.obj	11574a380ba91196
 41898	42656	8017052192948678	esp-idf/hal/CMakeFiles/__idf_hal.dir/mmu_hal.c.obj	bc83da3bebe6fd8e
 20733	21712	8017051981285733	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/auth.c.obj	49a27a500dbf189b
+323	34421	8017953857258541	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_libc/src/port/cmake_install.cmake	87a4a5fe4b8da9f6
 40373	40838	8017052177679105	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/interrupts.c.obj	68bd2f3bb719d6f9
 20748	21781	8017051981444342	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/ccp.c.obj	70fbbb85f365f877
 66348	67007	8017052437434307	esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/src/esp_crypto_lock.c.obj	edce9961a9b54f92
@@ -467,60 +498,64 @@
 40848	41548	8017052182433620	esp-idf/log/CMakeFiles/__idf_log.dir/src/buffer/log_buffers.c.obj	eb42ddbcd2c95071
 31625	32672	8017052090205812	esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread_semaphore.c.obj	c2ae1a63899bfa00
 59756	60730	8017052371513494	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/pem.c.obj	c694ebb513fad838
+323	34421	8017953866138283	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sd_intf/cmake_install.cmake	87a4a5fe4b8da9f6
 21158	22123	8017051985549614	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/fsm.c.obj	a647d8fc9f77897f
 21107	22135	8017051985039056	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/ecp.c.obj	78a8170aae2cd75d
 25566	30743	8017052029631967	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_page.cpp.obj	d073083faf9daa69
-115	344	8017073682386224	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+151	367	8017938448901192	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
 21527	22792	8017051989231381	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/ipv6cp.c.obj	e807ede425c95990
 53996	54940	8017052313913893	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls13_server.c.obj	6540c1a6885a984
 66529	67268	8017052439257346	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_table.c.obj	edb796d92018d843
 21790	22868	8017051991868592	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/multilink.c.obj	353c48e7340aa325
+323	34421	8017953854669138	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/hal/cmake_install.cmake	87a4a5fe4b8da9f6
+47163	48229	8017052245597825	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common_loader.c.obj	e10b74f639981f6f
+151	367	8017938448901192	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
 21712	23002	8017051991085029	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/magic.c.obj	ab71d973ac834f11
 46724	47736	8017052241216589	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_wrap.c.obj	7cf6cf3432f970dc
 69905	70853	8017052473021573	esp-idf/esp_hal_dma/CMakeFiles/__idf_esp_hal_dma.dir/gdma_hal_ahb_v1.c.obj	3ef94fe545685fa7
-115	344	8017073682386224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
-47163	48229	8017052245597825	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common_loader.c.obj	e10b74f639981f6f
 22096	23057	8017051994929034	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/pppos.c.obj	9e31aed82e47e264
 21836	23071	8017051992327033	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/pppapi.c.obj	23c6176b57ddc12
+323	34421	8017953865684730	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_rmt/cmake_install.cmake	87a4a5fe4b8da9f6
 22239	23312	8017051996353388	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/vj.c.obj	5254a6831e5b7d82
-30733	31976	8017052081284058	esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/esp_timer_impl_systimer.c.obj	8619e45d3b7283da
 22974	24071	8017052003701475	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/port/if_index.c.obj	b816a3dcf0301e39
+30733	31976	8017052081284058	esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/esp_timer_impl_systimer.c.obj	8619e45d3b7283da
 22856	24096	8017052002527630	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/port/sockets_ext.c.obj	f17554f9eebc677a
-42010	42737	8017052194063666	esp-idf/hal/CMakeFiles/__idf_hal.dir/color_hal.c.obj	22844e7cb72407e6
-84205	85217	8017052616016358	esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/src/esp_lcd_panel_ops.c.obj	a2a15ce1855743f0
-42463	43294	8017052198598211	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_systimer.c.obj	4104ef8c89e2ade2
-25678	27749	8017052030745248	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_partition_lookup.cpp.obj	3ea523511ac1303a
 23003	24117	8017052003996476	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/port/acd_dhcp_check.c.obj	4a570e8f83f70f04
+25678	27749	8017052030745248	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_partition_lookup.cpp.obj	3ea523511ac1303a
+42463	43294	8017052198598211	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_systimer.c.obj	4104ef8c89e2ade2
+84205	85217	8017052616016358	esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/src/esp_lcd_panel_ops.c.obj	a2a15ce1855743f0
+42010	42737	8017052194063666	esp-idf/hal/CMakeFiles/__idf_hal.dir/color_hal.c.obj	22844e7cb72407e6
 23079	24138	8017052004756431	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/polarssl/arc4.c.obj	a436d9fb9c9663a8
-32493	33698	8017052098898010	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/stdatomic.c.obj	da18e0d062e95cec
-88470	89299	8017052658667960	esp-idf/esp_driver_sdm/libesp_driver_sdm.a	22b3e4f21ac2272e
-86023	87031	8017052634202914	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/diskio/diskio_sdmmc.c.obj	c70d2665f788de45
 22792	24147	8017052001874655	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/port/hooks/tcp_isn_default.c.obj	4a95233dd6c3b34a
+86023	87031	8017052634202914	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/diskio/diskio_sdmmc.c.obj	c70d2665f788de45
+88470	89299	8017052658667960	esp-idf/esp_driver_sdm/libesp_driver_sdm.a	22b3e4f21ac2272e
+32493	33698	8017052098898010	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/stdatomic.c.obj	da18e0d062e95cec
 23105	24253	8017052005014808	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/polarssl/des.c.obj	ec1f528bf05c9a55
-53255	54518	8017052306511011	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_cookie.c.obj	37ba95f274fd1ec8
 22868	24311	8017052002631779	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/port/freertos/sys_arch.c.obj	de8f93ac507c1798
-38976	39918	8017052163716187	esp-idf/esp_hal_i2s/CMakeFiles/__idf_esp_hal_i2s.dir/i2s_hal.c.obj	e78d776d2658dcf5
-60639	61395	8017052380360287	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/poly1305.c.obj	3f52dd3e02625044
-42576	43681	8017052199725371	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_cache_esp32s2_esp32s3.c.obj	f44221a2e7b19eef
+53255	54518	8017052306511011	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_cookie.c.obj	37ba95f274fd1ec8
 23280	24345	8017052006757252	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/polarssl/md5.c.obj	ce46515a225690aa
-33459	34267	8017052108544771	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/bufio_setvbuf.c.obj	39994249642d254e
-24096	25678	8017052014930048	esp-idf/vfs/CMakeFiles/__idf_vfs.dir/vfs.c.obj	a603804d0ee9dc52
-58423	59287	8017052358192838	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecdh.c.obj	18493a8ca12277ba
+42576	43681	8017052199725371	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_cache_esp32s2_esp32s3.c.obj	f44221a2e7b19eef
+60639	61395	8017052380360287	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/poly1305.c.obj	3f52dd3e02625044
+38976	39918	8017052163716187	esp-idf/esp_hal_i2s/CMakeFiles/__idf_esp_hal_i2s.dir/i2s_hal.c.obj	e78d776d2658dcf5
 22845	24385	8017052002419920	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/port/debug/lwip_debug.c.obj	71935a0f7b043320
+58423	59287	8017052358192838	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecdh.c.obj	18493a8ca12277ba
+24096	25678	8017052014930048	esp-idf/vfs/CMakeFiles/__idf_vfs.dir/vfs.c.obj	a603804d0ee9dc52
+33459	34267	8017052108544771	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/bufio_setvbuf.c.obj	39994249642d254e
 23312	24529	8017052007086863	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/polarssl/sha1.c.obj	7a163b558c199c58
-23072	24749	8017052004685904	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/apps/ping/ping_sock.c.obj	be2bbe06d7cf44bd
-66359	67385	8017052437542969	esp-idf/mbedtls/libmbedtls.a	e8833df12207307d
 83661	84409	8017052610568078	esp-idf/esp_hal_cam/libesp_hal_cam.a	93802b7016b328f2
+66359	67385	8017052437542969	esp-idf/mbedtls/libmbedtls.a	e8833df12207307d
+23072	24749	8017052004685904	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/apps/ping/ping_sock.c.obj	be2bbe06d7cf44bd
 71380	72879	8017052487762041	esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/src/gpspi/spi_slave_hd.c.obj	e628d167eff98c
 44160	45403	8017052215570636	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/task_wdt/task_wdt.c.obj	368d2c18dbf19f2d
 24071	24887	8017052014681926	esp-idf/esp_netif/libesp_netif.a	adff6738dadde13d
 24312	25435	8017052017102851	esp-idf/esp_driver_usb_serial_jtag/CMakeFiles/__idf_esp_driver_usb_serial_jtag.dir/src/usb_serial_jtag_connection_monitor.c.obj	770ab990c464c051
-19277	19394	8017073874007722	CMakeFiles/app_check_size	612701fe8ff9544d
+164	277	8017938449039726	CMakeFiles/app_check_size	612701fe8ff9544d
 25610	30685	8017052030066693	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_storage.cpp.obj	7976c64fafc6be6d
 24138	25453	8017052015351775	esp-idf/vfs/CMakeFiles/__idf_vfs.dir/vfs_eventfd.c.obj	5fd355fcd810a866
 24530	25566	8017052019260815	esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/src/phy_common.c.obj	a9a6e03359f36909
 24254	25587	8017052016500218	esp-idf/vfs/CMakeFiles/__idf_vfs.dir/nullfs.c.obj	ad67a3406ca4c0b9
 51371	52696	8017052287664922	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/sha/core/sha.c.obj	85185e38e03fd657
+323	34421	8017953857295094	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/pthread/cmake_install.cmake	87a4a5fe4b8da9f6
 33785	35035	8017052111808615	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/stream_buffer.c.obj	c0ad0d5f28d9e36d
 24147	25609	8017052015440760	esp-idf/vfs/CMakeFiles/__idf_vfs.dir/vfs_semihost.c.obj	2daf4800ab2cd374
 24346	25637	8017052017422745	esp-idf/esp_driver_usb_serial_jtag/CMakeFiles/__idf_esp_driver_usb_serial_jtag.dir/src/usb_serial_jtag_vfs.c.obj	5e0e4e584c14a750
@@ -544,16 +579,17 @@
 85471	86654	8017052628672107	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/diskio/diskio_rawflash.c.obj	22cbfe9ebd381b92
 64966	65555	8017052423615329	esp-idf/esp_driver_dma/CMakeFiles/__idf_esp_driver_dma.dir/src/esp_async_memcpy.c.obj	d47dddd0e36642ec
 28340	29483	8017052057354234	esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/nvs_sec_provider.c.obj	b8e07da3dcf0d6af
-386	456	8017073685735910	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+402	472	8017938452029466	CMakeFiles/bootloader-complete	464aa4adf9946b6c
 25453	29640	8017052028498151	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_cxx_api.cpp.obj	3f6d1eaee8e3e133
 25531	29861	8017052029282207	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_item_hash_list.cpp.obj	c4a9e6aedd3cb895
 25587	30125	8017052029826685	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_pagemanager.cpp.obj	1b504c1a931bfc12
 83085	83888	8017052604810918	esp-idf/esp_hal_sd/libesp_hal_sd.a	af9e029fc8753054
+323	34421	8017953865427935	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ppa/cmake_install.cmake	87a4a5fe4b8da9f6
 25621	30406	8017052030163628	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_handle_simple.cpp.obj	f305e49782e98455
 58221	59138	8017052356171535	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/cipher_wrap.c.obj	7cb6b221713c514a
 25435	30435	8017052028307790	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_api.cpp.obj	b174a1c86c8766db
 26003	30715	8017052034004698	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_partition_manager.cpp.obj	ed6aec7380899a3
-115	344	8017073682386224	bootloader/bootloader.elf	3df1e71b20a70dfc
+151	367	8017938448901192	bootloader/bootloader.elf	3df1e71b20a70dfc
 68709	69549	8017052461049505	esp-idf/esp_hal_security/CMakeFiles/__idf_esp_hal_security.dir/mpu_hal.c.obj	e7782eafb238f375
 26094	30724	8017052034915897	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_types.cpp.obj	7ef4e1609be26c39
 67429	68786	8017052448244831	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_utility.c.obj	e621fea62df33309
@@ -573,6 +609,7 @@
 30435	31642	8017052078312069	esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/esp_timer.c.obj	36672cab3ab986fa
 30001	31653	8017052073985043	esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uhci.c.obj	45eee687de5dae1f
 30881	31761	8017052082773207	esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_init.cpp.obj	8a0b6c93af5d8554
+323	34421	8017953856881150	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/lowpower/cmake_install.cmake	87a4a5fe4b8da9f6
 29642	32226	8017052070383844	esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.obj	b40a901de64985e9
 31632	32315	8017052090274990	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/init.c.obj	536f71733cfde229
 31642	32327	8017052090385932	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/abort.c.obj	ab4ff698294c1413
@@ -591,8 +628,10 @@
 72229	73025	8017052496251677	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_cmd.c.obj	2f59c234d112995
 36991	38020	8017052143872225	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_uart.c.obj	7aeecbf580cc3abd
 32328	32869	8017052097242666	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/getentropy.c.obj	31828f9935b0132b
+323	34421	8017953850026453	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_app_format/cmake_install.cmake	87a4a5fe4b8da9f6
 30820	32907	8017052082165850	esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_guards.cpp.obj	26b5dee242622e84
 32226	33211	8017052096222880	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/pthread.c.obj	65db3cff3d5eb639
+323	34421	8017953864954422	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_parlio/cmake_install.cmake	87a4a5fe4b8da9f6
 32291	33327	8017052096865557	esp-idf/nvs_sec_provider/libnvs_sec_provider.a	b78e35e17f2722a
 34547	35615	8017052119429950	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/esp_cpu_intr.c.obj	2205364aef736cb2
 32315	33459	8017052097117403	esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/random.c.obj	da3e31f3c6c45fdd
@@ -617,7 +656,7 @@
 33629	34484	8017052110258526	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/heap_idf.c.obj	8126bb6cb9d9b15c
 33687	34537	8017052110835979	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/port_systick.c.obj	36814b07a2adb195
 33666	34547	8017052110607500	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/port_common.c.obj	5e9ad95ee4c1f612
-76831	77676	8017052542277955	esp-idf/esp_app_format/libesp_app_format.a	1207b254f15063b2
+1241	1793	8017895479117254	esp-idf/esp_app_format/libesp_app_format.a	1207b254f15063b2
 85960	86858	8017052633568943	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/port/freertos/ffsystem.c.obj	43b1d906d21c4dfc
 33778	34656	8017052111743205	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/event_groups.c.obj	c2c8e85a80c459cc
 83176	84034	8017052605722195	esp-idf/protobuf-c/libprotobuf-c.a	341a7f1be3fc150e
@@ -633,6 +672,7 @@
 58319	59184	8017052357146337	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/constant_time.c.obj	759a3c54589448c2
 34400	35602	8017052117958206	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/esp_additions/idf_additions_event_groups.c.obj	a37a146d4b9ce67d
 34537	35711	8017052119335074	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/cpu.c.obj	71e9b8b7fd5d2e96
+323	34421	8017953861254468	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/unity/cmake_install.cmake	87a4a5fe4b8da9f6
 44445	45321	8017052218413514	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/esp_ipc_isr.c.obj	adf6fa401ecc1332
 47349	48068	8017052247451130	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_init.c.obj	18712f0bf8bd720d
 80216	81433	8017052576122452	esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/src/mcpwm_fault.c.obj	4e9f0bc877f45f1
@@ -641,12 +681,13 @@
 35170	36112	8017052125671197	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/mac_addr.c.obj	9f4bb9d960da12bb
 35506	36439	8017052129017760	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/revision.c.obj	6cf637badcac10bb
 35602	36469	8017052129989620	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/esp_gpio_reserve.c.obj	a283a5c2c3de89c6
-386	456	8017073685735910	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+402	472	8017938452029466	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
 36113	36991	8017052135092158	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/heap_align_hw.c.obj	200776abc9126626
 35594	36999	8017052129904461	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/regi2c_ctrl.c.obj	7af8d63d181fef6a
 37444	39078	8017052148402699	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_wake_stub.c.obj	5b12cb2551e331d8
+323	34421	8017953849312970	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_gpspi/cmake_install.cmake	87a4a5fe4b8da9f6
 72132	72961	8017052495289676	esp-idf/esp_security/libesp_security.a	41d9170fde1e8a17
-16371	19010	8017073844948428	ball_balancer.elf	6aee8de627a52e14
+13869	15354	8017895605379468	ball_balancer.elf	6aee8de627a52e14
 36181	37297	8017052135774677	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/clk_utils.c.obj	92faefb6eb51e39a
 36105	37456	8017052135021607	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/spi_bus_lock.c.obj	f8e5c5f75b07b23d
 53123	54157	8017052305190237	esp-idf/esp_common/libesp_common.a	c25c84e43bbb3df2
@@ -668,6 +709,7 @@
 39141	39616	8017052165379464	esp-idf/esp_hal_touch_sens/CMakeFiles/__idf_esp_hal_touch_sens.dir/esp32s3/touch_sensor_periph.c.obj	a1debfa24b3e03c1
 38802	39765	8017052161980659	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/mspi_timing_tuning/port/esp32s3/mspi_timing_config.c.obj	83082ae017036af5
 48557	49126	8017052259536655	esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/esp32s3/adc_periph.c.obj	9265952c465b358d
+323	34421	8017953869499113	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/protobuf-c/cmake_install.cmake	87a4a5fe4b8da9f6
 39068	39791	8017052164645805	esp-idf/esp_hal_i2s/CMakeFiles/__idf_esp_hal_i2s.dir/esp32s3/i2s_periph.c.obj	10998f901c42f094
 39095	39816	8017052164917146	esp-idf/esp_hal_touch_sens/CMakeFiles/__idf_esp_hal_touch_sens.dir/touch_sensor_legacy_hal.c.obj	26651d8f9d159d3c
 39079	39892	8017052164744249	esp-idf/esp_hal_touch_sens/CMakeFiles/__idf_esp_hal_touch_sens.dir/esp32s3/touch_sensor_legacy_hal.c.obj	801873f96391eb52
@@ -690,10 +732,12 @@
 39791	40592	8017052171868832	esp-idf/esp_hal_usb/CMakeFiles/__idf_esp_hal_usb.dir/usb_serial_jtag_hal.c.obj	7238e69f4c639d66
 39892	40659	8017052172883300	esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/esp32s3/rtc_io_periph.c.obj	28999bac9f76b8f3
 40400	40848	8017052177963296	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/gpio_periph.c.obj	1030adba8c5177e1
+323	34421	8017953854415869	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_common/cmake_install.cmake	87a4a5fe4b8da9f6
 40444	40871	8017052178401370	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/mpi_periph.c.obj	a5be1c420805efa8
 40660	41351	8017052180568526	esp-idf/heap/CMakeFiles/__idf_heap.dir/port/esp32s3/memory_layout.c.obj	c91682276cfc0c5b
 40648	41510	8017052180448038	esp-idf/heap/CMakeFiles/__idf_heap.dir/port/memory_layout_utils.c.obj	6a14bb5b1f0a76f4
 40519	41540	8017052179154637	esp-idf/heap/CMakeFiles/__idf_heap.dir/heap_caps.c.obj	9a505689793459f1
+323	34421	8017953848872956	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cmake_install.cmake	87a4a5fe4b8da9f6
 41663	42401	8017052190584483	esp-idf/hal/CMakeFiles/__idf_hal.dir/efuse_hal.c.obj	cba8ad57181f0aec
 74830	75564	8017052522272197	esp-idf/esp_hal_cam/CMakeFiles/__idf_esp_hal_cam.dir/cam_hal.c.obj	7ec61c6fa5595c7f
 40512	41555	8017052179086231	esp-idf/heap/CMakeFiles/__idf_heap.dir/heap_caps_base.c.obj	bdc6583f0539ecf9
@@ -705,7 +749,7 @@
 83438	84195	8017052608347289	esp-idf/unity/libunity.a	750889ea5df7a781
 41549	42010	8017052189442333	esp-idf/log/CMakeFiles/__idf_log.dir/src/log_level/tag_log_level/tag_log_level.c.obj	3eab54f2f4a96427
 41556	42150	8017052189521883	esp-idf/log/CMakeFiles/__idf_log.dir/src/log_level/tag_log_level/linked_list/log_linked_list.c.obj	230cce511b41de7c
-386	456	8017073685735910	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+402	472	8017938452029466	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
 41750	42463	8017052191459030	esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32s3/efuse_hal.c.obj	4b810009a2647375
 42082	42676	8017052194782280	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_sys.c.obj	67272f8a1d78c36e
 42180	42699	8017052195756514	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_efuse.c.obj	23869d6eea860dc0
@@ -735,6 +779,7 @@
 45567	46168	8017052229625929	esp-idf/esp_hal_pmu/libesp_hal_pmu.a	c7963fbd933ac2ee
 46001	46665	8017052233975255	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_gd.c.obj	aedcbdc34194c580
 65679	66280	8017052430764153	esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/esp32s3/uart_periph.c.obj	87af2d62cbb8bfd1
+323	34421	8017953865329469	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_pcnt/cmake_install.cmake	87a4a5fe4b8da9f6
 51158	52129	8017052285546684	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/sha/esp_sha.c.obj	d2d2dd9136869339
 45923	46676	8017052233184640	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_hpm_enable.c.obj	75492e596b7cfda7
 45547	46716	8017052229423861	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32s3/cache_err_int.c.obj	528bf1b27b92c2b9
@@ -750,6 +795,7 @@
 46688	47369	8017052240845819	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_blockdev.c.obj	8c4d7c8bd28cf82b
 48994	50139	8017052263900704	esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_hal.c.obj	fa658b72c9e4a04b
 46677	47554	8017052240722571	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/memspi_host_driver.c.obj	96e6612d993d558d
+323	34421	8017953855938234	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_gpio/cmake_install.cmake	87a4a5fe4b8da9f6
 57241	58673	8017052346369431	esp-idf/esp_hal_ana_conv/libesp_hal_ana_conv.a	c66f33cc71d33b67
 62035	62589	8017052394308099	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/sha3.c.obj	5cc444da7a7f90d8
 46710	47878	8017052241047953	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/flash_mmap.c.obj	34573b53cc8a2b77
@@ -762,6 +808,7 @@
 47370	48252	8017052247650506	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_mem.c.obj	e3cc8fabf94642cc
 47980	49292	8017052253771012	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash.c.obj	23e14f2955c2c9db
 74377	75145	8017052517740463	esp-idf/esp_hal_twai/CMakeFiles/__idf_esp_hal_twai.dir/esp32s3/twai_periph.c.obj	330dc0cadeee964
+323	34421	8017953851422751	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_mm/cmake_install.cmake	87a4a5fe4b8da9f6
 47736	48644	8017052251324426	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_efuse.c.obj	cfd98186787ec025
 47878	48885	8017052252737543	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/secure_boot.c.obj	1fd7b6bd78cbd90c
 75403	76013	8017052527998473	esp-idf/esp_hal_pcnt/CMakeFiles/__idf_esp_hal_pcnt.dir/pcnt_hal.c.obj	d4b1b4de52e07c17
@@ -804,10 +851,11 @@
 51242	52256	8017052286379838	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/psa_driver/esp_mac/psa_crypto_driver_esp_hmac_transparent.c.obj	1b13d53bef493a7a
 50929	52352	8017052283253177	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/aes/esp_aes_gcm.c.obj	85eecaaffe640b62
 51258	52365	8017052286551681	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/psa_driver/esp_sha/core/psa_crypto_driver_esp_sha1.c.obj	958fb56ce5b1ba9d
+323	34421	8017953869794592	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_trace/cmake_install.cmake	87a4a5fe4b8da9f6
 51145	52403	8017052285408412	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/psa_driver/esp_sha/core/psa_crypto_driver_esp_sha512.c.obj	d233cf36d19e7ccd
 54518	55681	8017052319133258	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/timing.c.obj	16188898d5448c37
 51632	52558	8017052290291376	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/psa_driver/esp_md/psa_crypto_driver_esp_md5.c.obj	d6d7c3ef2278a278
-19277	19394	8017073874007722	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+164	277	8017938449039726	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
 51767	52903	8017052291637376	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/psa_driver/esp_mac/psa_crypto_driver_esp_hmac_opaque.c.obj	cf41b3ad20a40ca0
 58030	59430	8017052354269858	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/cipher.c.obj	7d8e37eac8cf5033
 52157	53032	8017052295521147	esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/C_/esp/v6.0.1/esp-idf/components/mbedtls/port/bignum/bignum_alt.c.obj	8d923f031a26b461
@@ -849,6 +897,7 @@
 55682	56916	8017052330780617	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509_csr.c.obj	9d3124c9b5478987
 56088	57161	8017052334849046	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509write_csr.c.obj	7baac486d3d13324
 56526	57168	8017052339222084	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/aesce.c.obj	b65b7cfc3e174400
+323	34421	8017953858805514	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_phy/cmake_install.cmake	87a4a5fe4b8da9f6
 56655	57444	8017052340522233	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/aria.c.obj	6b22efbacad2f170
 56620	57482	8017052340173003	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/aesni.c.obj	7b4cbeecf7806eaf
 57098	57976	8017052344945441	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/bignum_mod.c.obj	d6703100b960efbb
@@ -863,11 +912,13 @@
 58673	59255	8017052360694567	esp-idf/esp_hal_wdt/libesp_hal_wdt.a	1e0da1f99554a2f8
 58718	59275	8017052361150139	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecp_curves_new.c.obj	63b9728856579aae
 56904	59315	8017052343004754	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/bignum.c.obj	aad8544b89dc95af
+323	34421	8017953854248187	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/port/soc/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
 58485	59624	8017052358806449	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecjpake.c.obj	2f1720c8267fa3b
 59330	59895	8017052367264584	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/lms.c.obj	dd0c60c3f8aade65
 58400	59945	8017052357970652	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ctr_drbg.c.obj	94fae270352b1d36
 67643	69135	8017052450396278	esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/partition_target.c.obj	d8fa68a87d406603
 59316	59969	8017052367123756	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/lmots.c.obj	6b2755d68f699e26
+323	34421	8017953870140407	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/ieee802154/cmake_install.cmake	87a4a5fe4b8da9f6
 58693	59992	8017052360890629	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecp_curves.c.obj	efc65caca59caf01
 59444	60015	8017052368404679	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/memory_buffer_alloc.c.obj	3475c8a2e8ebc8aa
 59617	60205	8017052370128195	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/nist_kw.c.obj	a1afc259b6a027f2
@@ -878,6 +929,7 @@
 61546	62274	8017052389434769	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/sha1.c.obj	b2cdc6a0eb61987a
 60002	61086	8017052373985991	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/pkcs5.c.obj	6989a66593073202
 60444	61262	8017052378411690	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/platform.c.obj	62c9c1daff76479
+323	34421	8017953858327669	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_event/cmake_install.cmake	87a4a5fe4b8da9f6
 60015	61386	8017052374109066	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/pkparse.c.obj	2d3e77dafdb2c3c4
 78890	80362	8017052562860394	esp-idf/driver/CMakeFiles/__idf_driver.dir/touch_sensor/esp32s3/touch_sensor.c.obj	5a994ae328e946f2
 60205	61493	8017052376015207	esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/pkwrite.c.obj	90a524c33b74cdfb
@@ -925,6 +977,7 @@
 65364	66480	8017052427610574	esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/pm_impl.c.obj	7305463bffbb08f3
 81403	83100	8017052587989657	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_rx.c.obj	635d54393c962b6d
 64959	66529	8017052423554951	esp-idf/esp_driver_dma/CMakeFiles/__idf_esp_driver_dma.dir/src/gdma.c.obj	18a7076fa655fab7
+323	34421	8017953856821945	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/mspi_timing_tuning/port/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
 65890	66732	8017052432861607	esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/uhci_hal.c.obj	96c9f4ce7833e288
 66048	66988	8017052434442658	esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/src/gpio_glitch_filter_ops.c.obj	b0e0320b434e875
 66270	67469	8017052436668183	esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/src/gpio_pin_glitch_filter.c.obj	4a0f98f4236ad
@@ -935,7 +988,9 @@
 81293	82473	8017052586904628	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_encoder_simple.c.obj	f42f05b108fc6b4a
 79446	80216	8017052568428391	esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/dvp_share_ctrl.c.obj	53e6d3920accffda
 66988	68100	8017052443839855	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_rtc_calib.c.obj	c9cb8ccd95fa4a82
+323	34421	8017953871366713	build.ninja	87a4a5fe4b8da9f6
 67007	68286	8017052444032581	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_utility.c.obj	f22c0ff929cea62
+323	34421	8017953849096465	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_stdio/cmake_install.cmake	87a4a5fe4b8da9f6
 67912	68610	8017052453080770	esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/esp_bootloader_desc.c.obj	ceeb9a404a91fe89
 67385	68650	8017052447823319	esp-idf/esp_driver_dma/libesp_driver_dma.a	e4ea96433463608c
 80030	81293	8017052574254089	esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/src/mcpwm_cap.c.obj	53544ba5b7d51978
@@ -948,7 +1003,8 @@
 67633	69249	8017052450285514	esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/partition.c.obj	945e386294e8ac4e
 67713	69265	8017052451096961	esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_ota_ops.c.obj	e63e8affd1e5b476
 72429	73155	8017052498261516	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_dbl.c.obj	58269a1655584aa3
-68100	69295	8017052454974908	esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj	bc5acc0569b8f004
+323	34421	8017953867391435	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_twai/cmake_install.cmake	87a4a5fe4b8da9f6
+265	1241	8017895469298602	esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj	8233e5a42b0c3013
 68650	69629	8017052460468979	esp-idf/esp_mm/libesp_mm.a	354bb3d6f38181ab
 69115	69752	8017052465108127	esp-idf/esp_hal_mspi/CMakeFiles/__idf_esp_hal_mspi.dir/spi_flash_encrypt_hal_iram.c.obj	95acc51d15a245bc
 68908	70117	8017052463040909	esp-idf/esp_hal_mspi/CMakeFiles/__idf_esp_hal_mspi.dir/spi_flash_hal_iram.c.obj	f35d118c43e1374b
@@ -963,38 +1019,45 @@
 70268	70752	8017052476649808	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_context.S.obj	ac6cbb2912658a8a
 70249	70782	8017052476455129	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/eri.c.obj	853e762265d797f7
 70259	70964	8017052476551105	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xt_trax.c.obj	22bd553b0c5a72b4
+323	34421	8017953856755558	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/cmake_install.cmake	87a4a5fe4b8da9f6
 82362	83084	8017052597586223	esp-idf/xtensa/libxtensa.a	af4f520e5ffdc036
+323	34421	8017953862805782	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_adc/cmake_install.cmake	87a4a5fe4b8da9f6
 70494	71013	8017052478900370	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_vectors.S.obj	703d62aed98cd15f
 70470	71341	8017052478664582	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_intr.c.obj	b60d0640ee9a12b4
 70657	71389	8017052480530854	esp-idf/esp_hal_uart/libesp_hal_uart.a	dc3d2409847a871e
+323	34421	8017953851777209	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake	87a4a5fe4b8da9f6
 70783	71682	8017052481794010	esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/sdmmc_init.c.obj	e3cf62073fe21217
 70853	71874	8017052482503383	esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/sdmmc_mmc.c.obj	1a9eea30e765de98
-83927	84852	8017052613226210	esp-idf/esp_hal_mcpwm/libesp_hal_mcpwm.a	be1f594b3f33b3cc
-70753	71943	8017052481495820	esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/sdmmc_common.c.obj	db00ae907cdccf83
 82474	83661	8017052598694763	esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/src/esp_eth_netif_glue.c.obj	da03404f8caf7fd4
+70753	71943	8017052481495820	esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/sdmmc_common.c.obj	db00ae907cdccf83
+323	34421	8017953865396487	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ppa/cmake_install.cmake	87a4a5fe4b8da9f6
+83927	84852	8017052613226210	esp-idf/esp_hal_mcpwm/libesp_hal_mcpwm.a	be1f594b3f33b3cc
 71682	72995	8017052490785432	esp-idf/console/CMakeFiles/__idf_console.dir/esp_console_common.c.obj	cdd6b73820b54995
 71341	73078	8017052487377448	esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/src/gpspi/spi_master.c.obj	a5364102d072f447
 72266	73168	8017052496620875	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_date.c.obj	eb86a3efc70f7953
-88609	89271	8017052660039113	esp-idf/esp_driver_touch_sens/libesp_driver_touch_sens.a	9f8c3350ab2ee0c5
 71800	73197	8017052491959287	esp-idf/console/CMakeFiles/__idf_console.dir/esp_console_repl_internal.c.obj	998de310d6056e0e
+88609	89271	8017052660039113	esp-idf/esp_driver_touch_sens/libesp_driver_touch_sens.a	9f8c3350ab2ee0c5
 72995	73900	8017052503916595	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_file.c.obj	b4634c38a67697c1
 73118	74103	8017052505149566	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_lit.c.obj	e16983413bd13a83
 73132	74251	8017052505294229	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_rem.c.obj	3a3b08f84926e936
 73079	74261	8017052504743341	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_int.c.obj	e7b0946644dfe058
 73168	74301	8017052505651110	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_str.c.obj	349c16e8a0b268ea
 72961	74351	8017052503578266	esp-idf/efuse/libefuse.a	7f522019e8177545
-86151	87401	8017052635467713	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/vfs/vfs_fat_spiflash.c.obj	d4de2f46d68cbd1e
 73156	74367	8017052505520917	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_rex.c.obj	e4984f0824d94606
+323	34421	8017953864065600	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_jpeg/cmake_install.cmake	87a4a5fe4b8da9f6
+86151	87401	8017052635467713	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/vfs/vfs_fat_spiflash.c.obj	d4de2f46d68cbd1e
 73229	74567	8017052506242657	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/argtable3.c.obj	3788e4e2dc58cf25
 74103	75135	8017052514999149	esp-idf/unity/CMakeFiles/__idf_unity.dir/unity_utils_freertos.c.obj	dafbafe593ae9538
 74567	75518	8017052519633342	esp-idf/esp_hal_twai/CMakeFiles/__idf_esp_hal_twai.dir/twai_hal_v1.c.obj	f2ab980dc0be46f1
-73791	75696	8017052511866853	esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/protobuf-c/protobuf-c/protobuf-c.c.obj	7382b13b6807d13e
 78261	78769	8017052556576689	esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/crc32.cpp.obj	a1df6f017de6d2c0
+73791	75696	8017052511866853	esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/protobuf-c/protobuf-c/protobuf-c.c.obj	7382b13b6807d13e
+323	34421	8017953851139344	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_uart/cmake_install.cmake	87a4a5fe4b8da9f6
 75145	75975	8017052525407101	esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/ledc_hal_iram.c.obj	4987fd53ea270cb9
 75248	75997	8017052526442277	esp-idf/esp_hal_mcpwm/CMakeFiles/__idf_esp_hal_mcpwm.dir/mcpwm_hal.c.obj	6afad04137e27116
 75155	76071	8017052525514259	esp-idf/app_update/libapp_update.a	557b4d893ac1e7eb
 75564	76346	8017052529613472	esp-idf/esp_hal_rmt/CMakeFiles/__idf_esp_hal_rmt.dir/rmt_hal.c.obj	75083377725a8954
 76013	76512	8017052534094544	esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/src/sdspi_crc.c.obj	119518a87d1b7277
+323	34421	8017953852811080	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/src/cmake_install.cmake	87a4a5fe4b8da9f6
 75110	76526	8017052525067825	esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/i2c_slave.c.obj	21fd2c5602fa6128
 76071	76831	8017052534676229	esp-idf/esp_bootloader_format/libesp_bootloader_format.a	eeb73bdf0bd3a3ee
 74990	77006	8017052523857381	esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/i2c_master.c.obj	7466524850c19228
@@ -1018,28 +1081,31 @@
 79422	80257	8017052568183390	esp-idf/esp_blockdev_util/CMakeFiles/__idf_esp_blockdev_util.dir/memory.c.obj	96671f42bc7fe247
 78805	80746	8017052562013730	esp-idf/driver/CMakeFiles/__idf_driver.dir/i2c/i2c.c.obj	e49c26511394cd1
 80136	80899	8017052575324641	esp-idf/esp_hal_gpspi/libesp_hal_gpspi.a	4046a95a4dd225e7
-86858	87985	8017052642547474	esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/spiffs/src/spiffs_check.c.obj	33ffb8ae70dc3561
 79518	80982	8017052569153898	esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/dvp/src/esp_cam_ctlr_dvp_cam.c.obj	d56323a44a93ec3c
+86858	87985	8017052642547474	esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/spiffs/src/spiffs_check.c.obj	33ffb8ae70dc3561
 80282	81403	8017052576786644	esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/src/mcpwm_sync.c.obj	d280b3234564b0fc
 80899	81637	8017052582949050	esp-idf/esp_hal_dma/libesp_hal_dma.a	6a30922c5a4cd0f6
 80983	82271	8017052583795492	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_encoder.c.obj	531561f11619eeb0
 81637	82362	8017052590338374	esp-idf/esp_stdio/libesp_stdio.a	5f6298c4a51af65d
 81264	82485	8017052586615297	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_encoder_copy.c.obj	fa678bf2442632cd
 81528	82619	8017052589236582	esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/src/sdm.c.obj	6171bb921c0d91cb
+323	34421	8017953869033383	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_https_ota/cmake_install.cmake	87a4a5fe4b8da9f6
 81743	82831	8017052591398795	esp-idf/esp_driver_twai/CMakeFiles/__idf_esp_driver_twai.dir/esp_twai.c.obj	16b8d875641ba17b
 81681	83004	8017052590772886	esp-idf/esp_driver_tsens/CMakeFiles/__idf_esp_driver_tsens.dir/src/temperature_sensor.c.obj	6d4b50544cf2e62d
 81434	83116	8017052588307760	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_tx.c.obj	f237d7b5e16d8a65
 82485	83438	8017052598810976	esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/esp_hidd.c.obj	2d2fc13c2ed3f247
 82272	83715	8017052596683195	esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/src/esp_eth.c.obj	df87bcf7ee13c0b7
 82831	83730	8017052602271587	esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/esp_hid_common.c.obj	171075f8388ffd24
+323	34421	8017953849793527	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bootloader/cmake_install.cmake	87a4a5fe4b8da9f6
 83116	84204	8017052605123679	esp-idf/console/libconsole.a	dbb9648306e2791a
 84020	84764	8017052614162435	esp-idf/esp_hal_rmt/libesp_hal_rmt.a	5ac97ca8b89b71f
 83962	84780	8017052613579984	esp-idf/esp_hal_pcnt/libesp_hal_pcnt.a	44fd8546db90b25f
 83888	84800	8017052612838395	esp-idf/sdmmc/libsdmmc.a	d4f8ef56f40cd52d
 84127	85370	8017052615237333	esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/src/esp_lcd_panel_ssd1306.c.obj	22803237291af975
+323	34421	8017953866910215	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_touch_sens/cmake_install.cmake	87a4a5fe4b8da9f6
 84196	85539	8017052615916935	esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/src/esp_lcd_panel_st7789.c.obj	163df0e9ff795662
 84764	85553	8017052621601756	esp-idf/protocomm/libprotocomm.a	90a329779d2efc60
-19011	19277	8017073873944666	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/.bin_timestamp	59a5ece3f4ef6d77
+15354	15615	8017895622756201	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/.bin_timestamp	59a5ece3f4ef6d77
 84853	86023	8017052622493340	esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl_handler.c.obj	1c6dd6444c738646
 84409	86072	8017052618049265	esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/spi/esp_lcd_panel_io_spi.c.obj	ff4ea39b8a35f32
 85217	86151	8017052626137535	esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl_transport_httpd.c.obj	af0354c41da8ce45
@@ -1051,12 +1117,13 @@
 88834	89505	8017052662309647	esp-idf/esp_lcd/libesp_lcd.a	2ad5e8b199ba7aed
 86570	87683	8017052639667010	esp-idf/rt/CMakeFiles/__idf_rt.dir/FreeRTOS_POSIX_mqueue.c.obj	3b4c8af3f6b5f71c
 86757	87707	8017052641544967	esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/spiffs/src/spiffs_cache.c.obj	522fa2943c4ce6cf
+323	34421	8017953864020869	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_jpeg/cmake_install.cmake	87a4a5fe4b8da9f6
 86090	87816	8017052634866403	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/vfs/vfs_fat_sdmmc.c.obj	9416273b3b7353fb
 85553	87865	8017052629494084	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/src/ff.c.obj	cb58e5584830c7e1
 86869	88003	8017052642661074	esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/spiffs/src/spiffs_gc.c.obj	3cbac43fb4f475b6
 86883	88415	8017052642782519	esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/spiffs/src/spiffs_hydrogen.c.obj	bebd1f5c22e63b0b
 87724	88608	8017052651210240	esp-idf/cmock/libcmock.a	e9a944a0a0981e91
-102	5420	8017073682249296	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	3285dcf85cc6b1de
+269	1665	8017895469298602	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	1f6e6a81c2045f16
 87904	88750	8017052653007853	esp-idf/esp_driver_cam/libesp_driver_cam.a	72690d7ebcc82399
 88020	88834	8017052654168270	esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a	591cff35c1e20af4
 87985	88864	8017052653817842	esp-idf/esp_driver_ledc/libesp_driver_ledc.a	6458e77bb924f10f
@@ -1072,224 +1139,427 @@
 88878	89545	8017052662753072	esp-idf/fatfs/libfatfs.a	ec32530965a6613a
 63514	97151	8017052745349729	bootloader-prefix/src/bootloader-stamp/bootloader-configure	90b47c577fee44a7
 63514	97151	8017052745349729	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure	90b47c577fee44a7
-5887	16371	8017073843885471	esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+1896	13869	8017895604469233	esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
 109746	109838	8017052871360122	CMakeFiles/ball_balancer.elf.dir/project_elf_src_esp32s3.c.obj	ae68404522def54f
-115	344	8017073682386224	bootloader/bootloader.bin	3df1e71b20a70dfc
-115	344	8017073682386224	bootloader/bootloader.map	3df1e71b20a70dfc
-115	344	8017073682386224	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
-344	386	8017073684673015	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
-386	456	8017073685735910	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
-19011	19277	8017073873944666	.bin_timestamp	59a5ece3f4ef6d77
-428	4276	8017058444232325	CMakeFiles/flash.util	c334628a16c7743
-171	31855	8017181842587575	build.ninja	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/xtensa/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_stdio/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_dma/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_gpspi/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_clock/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_mspi/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_blockdev/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_security/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bootloader/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esptool_py/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/partition_table/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_app_format/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_bootloader_format/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/app_update/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_partition/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/efuse/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_security/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_gpio/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_uart/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_pm/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_mm/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_dma/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/include/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/p256-m/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/src/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/pkgconfig/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_timg/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_wdt/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ana_conv/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_rtc_timer/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bootloader_support/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/spi_flash/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_usb_cdc_rom_console/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/port/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/port/soc/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_common/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_rom/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/hal/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/log/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/heap/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/soc/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_gpio/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_usb/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_pmu/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_touch_sens/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_i2s/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/mspi_timing_tuning/port/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/lowpower/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/freertos/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_libc/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_libc/src/port/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/pthread/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cxx/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_timer/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_ringbuf/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_psram/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_uart/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_gptimer/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/app_trace/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_event/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/nvs_sec_provider/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/nvs_flash/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_phy/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_usb_serial_jtag/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/vfs/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/lwip/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_netif_stack/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_netif/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/wpa_supplicant/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_coex/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_wifi/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_spi/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_gdbstub/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bt/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/unity/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cmock/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/console/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_i2c/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_twai/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/driver/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/http_parser/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp-tls/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_adc/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_blockdev_util/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ana_cmpr/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ana_cmpr/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_bitscrambler/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_cam/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_isp/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_cam/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_dac/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i2c/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i2s/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i3c/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_jpeg/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_jpeg/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ledc/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ledc/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_mcpwm/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_mcpwm/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_parlio/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_parlio/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_pcnt/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_pcnt/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ppa/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ppa/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_rmt/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_rmt/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_sd/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/sdmmc/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sd_intf/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdio/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdm/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdmmc/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdspi/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_touch_sens/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_tsens/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_twai/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_eth/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ieee802154/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_lcd/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hid/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/tcp_transport/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_http_client/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_http_server/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_https_ota/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_https_server/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_lcd/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/protobuf-c/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/protocomm/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_local_ctrl/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_trace/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/espcoredump/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/wear_levelling/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/fatfs/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/idf_test/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/ieee802154/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/openthread/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/perfmon/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/rt/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/spiffs/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/ulp/cmake_install.cmake	87a4a5fe4b8da9f6
-171	31855	8017181842587575	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/main/cmake_install.cmake	87a4a5fe4b8da9f6
-333	699	8017181847457500	esp-idf/main/CMakeFiles/__idf_main.dir/pid.c.obj	9193cbcade2b0ce4
+323	34421	8017953853181968	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953853986463	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_usb_cdc_rom_console/cmake_install.cmake	87a4a5fe4b8da9f6
+151	367	8017938448901192	bootloader/bootloader.bin	3df1e71b20a70dfc
+151	367	8017938448901192	bootloader/bootloader.map	3df1e71b20a70dfc
+151	367	8017938448901192	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+368	402	8017938451066875	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+402	472	8017938452029466	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+15354	15615	8017895622756201	.bin_timestamp	59a5ece3f4ef6d77
+472	4008	8017938452029466	CMakeFiles/flash.util	c334628a16c7743
+323	34421	8017953848832690	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953849027362	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/xtensa/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953849264254	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_dma/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953849526536	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_clock/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953849660371	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_mspi/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953849689070	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_blockdev/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953849888923	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/partition_table/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953850120581	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_bootloader_format/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953850271804	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/app_update/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953850428582	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_partition/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953850590840	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/efuse/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953850863752	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_security/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953850925204	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_gpio/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953851283131	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_pm/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953851546946	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_dma/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953851755878	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953851798677	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953851821113	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/include/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953852118395	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953852153630	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953852337334	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953852492637	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/p256-m/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953853293232	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_wdt/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953853526238	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ana_conv/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953853713272	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bootloader_support/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953853928319	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/spi_flash/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953854192746	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953854248187	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/port/cmake_install.cmake	87a4a5fe4b8da9f6
 329	733	8017181847394359	esp-idf/main/CMakeFiles/__idf_main.dir/kinematics.c.obj	ffbc6620d32451b4
-356	886	8017181847689996	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
-356	886	8017181847689996	bootloader/bootloader.elf	3df1e71b20a70dfc
-356	886	8017181847689996	bootloader/bootloader.bin	3df1e71b20a70dfc
-356	886	8017181847689996	bootloader/bootloader.map	3df1e71b20a70dfc
-356	886	8017181847689996	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
-356	886	8017181847689996	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
-356	886	8017181847689996	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
-356	886	8017181847689996	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
-886	944	8017181852953366	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
-886	944	8017181852953366	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
-944	1045	8017181854489991	CMakeFiles/bootloader-complete	464aa4adf9946b6c
-944	1045	8017181854489991	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
-944	1045	8017181854489991	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
-944	1045	8017181854489991	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
-312	1070	8017181847247848	esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj	758599d4ae0a977e
-320	1368	8017181847323888	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	1f6e6a81c2045f16
-339	1384	8017181847502781	esp-idf/main/CMakeFiles/__idf_main.dir/steppers.c.obj	febde90eab8a79d6
-346	1389	8017181847581243	esp-idf/main/CMakeFiles/__idf_main.dir/control.c.obj	77fc5621943aa881
-324	1463	8017181847364136	esp-idf/main/CMakeFiles/__idf_main.dir/touch_screen.c.obj	3eafd622bf4db1bf
-1070	1613	8017181854823372	esp-idf/esp_app_format/libesp_app_format.a	1207b254f15063b2
-1613	1725	8017181860247997	esp-idf/main/libmain.a	143e573d57b4b4a6
-1725	12532	8017181968494173	esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
-1725	12532	8017181968494173	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
-12532	13809	8017181969295746	ball_balancer.elf	6aee8de627a52e14
-13810	14162	8017181985531669	.bin_timestamp	59a5ece3f4ef6d77
-13810	14162	8017181985531669	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/.bin_timestamp	59a5ece3f4ef6d77
-14162	14285	8017181985746793	CMakeFiles/app_check_size	612701fe8ff9544d
-14162	14285	8017181985746793	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
-125	283	8017182220172772	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	1f6e6a81c2045f16
-131	389	8017182220245796	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
-131	389	8017182220245796	bootloader/bootloader.elf	3df1e71b20a70dfc
-131	389	8017182220245796	bootloader/bootloader.bin	3df1e71b20a70dfc
-131	389	8017182220245796	bootloader/bootloader.map	3df1e71b20a70dfc
-131	389	8017182220245796	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
-131	389	8017182220245796	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
-131	389	8017182220245796	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
-131	389	8017182220245796	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
-284	406	8017182221763172	esp-idf/main/libmain.a	143e573d57b4b4a6
-390	425	8017182222827852	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
-390	425	8017182222827852	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
-425	521	8017182224067531	CMakeFiles/bootloader-complete	464aa4adf9946b6c
-425	521	8017182224067531	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
-425	521	8017182224067531	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
-425	521	8017182224067531	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
-406	9349	8017182311480722	esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
-406	9349	8017182311480722	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
-9349	10432	8017182312408933	ball_balancer.elf	6aee8de627a52e14
-10433	10723	8017182326077945	.bin_timestamp	59a5ece3f4ef6d77
-10433	10723	8017182326077945	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/.bin_timestamp	59a5ece3f4ef6d77
-10724	10826	8017182326166233	CMakeFiles/app_check_size	612701fe8ff9544d
-10724	10826	8017182326166233	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+323	34421	8017953854565255	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_rom/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953855035902	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/log/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953855236579	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/heap/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953855596692	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/soc/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953856031322	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_usb/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953856507230	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_i2s/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953856821945	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953857028760	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/freertos/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953857209453	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_libc/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953857529465	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cxx/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953857619280	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_timer/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953857779960	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_ringbuf/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953857931457	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_psram/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953858046985	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_uart/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953858194980	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_gptimer/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953858416397	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/nvs_sec_provider/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953858667216	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/nvs_flash/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953858979935	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_usb_serial_jtag/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953859144761	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/vfs/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953859701571	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_netif_stack/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953860667202	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_coex/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953860938064	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_spi/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953861151998	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_gdbstub/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953861735714	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/console/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953861920784	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_i2c/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953862083826	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_twai/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953862285069	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/driver/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953862462837	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/http_parser/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953862530721	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp-tls/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863035304	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_blockdev_util/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863067094	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ana_cmpr/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863103570	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ana_cmpr/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863255079	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_cam/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863255079	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_isp/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863490312	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_cam/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863756919	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i2c/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863948318	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i2s/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953863989153	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i3c/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953864466498	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ledc/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953864715091	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_mcpwm/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953864982905	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_parlio/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953865147277	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_pcnt/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953865684730	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_sd/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953866017245	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/sdmmc/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953866155808	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdio/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953866258233	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdm/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953866492548	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdmmc/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953866708591	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdspi/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953867727510	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_eth/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953870140407	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/idf_test/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953867765260	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ieee802154/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953868054387	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_lcd/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953868336547	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hid/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953868567621	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/tcp_transport/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953869840983	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/espcoredump/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953868850124	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_http_server/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953869202271	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_https_server/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953869636071	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/protocomm/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953869794592	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_local_ctrl/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953869956164	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/wear_levelling/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953870140407	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/fatfs/cmake_install.cmake	87a4a5fe4b8da9f6
+323	34421	8017953870217161	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/openthread/cmake_install.cmake	87a4a5fe4b8da9f6
+280	695	8017895469492556	esp-idf/main/CMakeFiles/__idf_main.dir/pid.c.obj	9193cbcade2b0ce4
+284	1698	8017895469547965	esp-idf/main/CMakeFiles/__idf_main.dir/steppers.c.obj	febde90eab8a79d6
+290	1691	8017895469611864	esp-idf/main/CMakeFiles/__idf_main.dir/control.c.obj	77fc5621943aa881
+92	28293	8017953871366713	build.ninja	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/xtensa/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_stdio/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_dma/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_gpspi/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_clock/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_mspi/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_blockdev/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_security/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bootloader/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esptool_py/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/partition_table/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_app_format/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_bootloader_format/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/app_update/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_partition/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/efuse/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_security/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_gpio/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_uart/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_pm/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_mm/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_dma/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/include/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/p256-m/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/src/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/pkgconfig/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_timg/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_wdt/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ana_conv/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_rtc_timer/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bootloader_support/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/spi_flash/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_usb_cdc_rom_console/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/port/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/port/soc/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_common/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_rom/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/hal/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/log/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/heap/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/soc/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_gpio/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_usb/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_pmu/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_touch_sens/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_i2s/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/mspi_timing_tuning/port/esp32s3/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hw_support/lowpower/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/freertos/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_libc/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_libc/src/port/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/pthread/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cxx/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_timer/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_ringbuf/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_psram/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_uart/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_gptimer/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/app_trace/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_event/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/nvs_sec_provider/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/nvs_flash/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_phy/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_usb_serial_jtag/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/vfs/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/lwip/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_netif_stack/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_netif/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/wpa_supplicant/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_coex/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_wifi/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_spi/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_gdbstub/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/bt/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/unity/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/cmock/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/console/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_i2c/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_twai/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/driver/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/http_parser/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp-tls/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_adc/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_blockdev_util/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ana_cmpr/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ana_cmpr/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_bitscrambler/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_cam/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_isp/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_cam/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_dac/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i2c/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i2s/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_i3c/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_jpeg/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_jpeg/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ledc/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ledc/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_mcpwm/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_mcpwm/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_parlio/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_parlio/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_pcnt/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_pcnt/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ppa/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_ppa/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_rmt/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_rmt/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_sd/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/sdmmc/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sd_intf/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdio/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdm/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdmmc/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_sdspi/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_touch_sens/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_tsens/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_driver_twai/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_eth/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_ieee802154/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hal_lcd/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_hid/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/tcp_transport/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_http_client/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_http_server/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_https_ota/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_https_server/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_lcd/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/protobuf-c/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/protocomm/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_local_ctrl/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_trace/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/espcoredump/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/wear_levelling/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/fatfs/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/idf_test/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/ieee802154/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/openthread/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/perfmon/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/rt/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/spiffs/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/ulp/cmake_install.cmake	87a4a5fe4b8da9f6
+92	28293	8017953871366713	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/main/cmake_install.cmake	87a4a5fe4b8da9f6
+322	566	8017953876547713	esp-idf/main/CMakeFiles/__idf_main.dir/pid.c.obj	d50a1697030559ad
+313	591	8017953876474795	esp-idf/main/CMakeFiles/__idf_main.dir/kinematics.c.obj	f2ab75528ba09a60
+296	695	8017953876306289	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	50611ab34ae1af40
+305	761	8017953876328342	esp-idf/main/CMakeFiles/__idf_main.dir/touch_screen.c.obj	92d6c90a60d5ec2a
+329	776	8017953876637118	esp-idf/main/CMakeFiles/__idf_main.dir/steppers.c.obj	bd058fe26041ce87
+344	819	8017953876786690	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+344	819	8017953876786690	bootloader/bootloader.elf	3df1e71b20a70dfc
+344	819	8017953876786690	bootloader/bootloader.bin	3df1e71b20a70dfc
+344	819	8017953876786690	bootloader/bootloader.map	3df1e71b20a70dfc
+344	819	8017953876786690	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+344	819	8017953876786690	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+344	819	8017953876786690	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+344	819	8017953876786690	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+337	853	8017953876712681	esp-idf/main/CMakeFiles/__idf_main.dir/control.c.obj	49c2bc1a43ff672d
+820	883	8017953881527191	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+820	883	8017953881527191	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+884	1006	8017953883289915	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+884	1006	8017953883289915	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+884	1006	8017953883289915	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+884	1006	8017953883289915	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+853	1053	8017953881869084	esp-idf/main/libmain.a	143e573d57b4b4a6
+1053	18213	8017954053827543	esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+1053	18213	8017954053827543	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+18213	20224	8017954055446022	ball_balancer.elf	6aee8de627a52e14
+20225	20686	8017954080026825	.bin_timestamp	59a5ece3f4ef6d77
+20225	20686	8017954080026825	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/.bin_timestamp	59a5ece3f4ef6d77
+20687	20871	8017954080197447	CMakeFiles/app_check_size	612701fe8ff9544d
+20687	20871	8017954080197447	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+292	647	8017961617056001	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	50611ab34ae1af40
+303	728	8017961617166361	esp-idf/main/CMakeFiles/__idf_main.dir/touch_screen.c.obj	92d6c90a60d5ec2a
+312	747	8017961617251777	esp-idf/main/CMakeFiles/__idf_main.dir/control.c.obj	49c2bc1a43ff672d
+320	801	8017961617331341	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+320	801	8017961617331341	bootloader/bootloader.elf	3df1e71b20a70dfc
+320	801	8017961617331341	bootloader/bootloader.bin	3df1e71b20a70dfc
+320	801	8017961617331341	bootloader/bootloader.map	3df1e71b20a70dfc
+320	801	8017961617331341	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+320	801	8017961617331341	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+320	801	8017961617331341	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+320	801	8017961617331341	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+802	880	8017961622153083	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+802	880	8017961622153083	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+747	972	8017961621607782	esp-idf/main/libmain.a	143e573d57b4b4a6
+880	1032	8017961624340480	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+880	1032	8017961624340480	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+880	1032	8017961624340480	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+880	1032	8017961624340480	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+972	17957	8017961792044988	esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+972	17957	8017961792044988	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+17957	19920	8017961793703663	ball_balancer.elf	6aee8de627a52e14
+19920	20410	8017961818118529	.bin_timestamp	59a5ece3f4ef6d77
+19920	20410	8017961818118529	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/.bin_timestamp	59a5ece3f4ef6d77
+20410	20611	8017961818244109	CMakeFiles/app_check_size	612701fe8ff9544d
+20410	20611	8017961818244109	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+240	468	8017963062111329	CMakeFiles/app_check_size	612701fe8ff9544d
+240	468	8017963062111329	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+226	590	8017963061953260	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+226	590	8017963061953260	bootloader/bootloader.elf	3df1e71b20a70dfc
+226	590	8017963061953260	bootloader/bootloader.bin	3df1e71b20a70dfc
+226	590	8017963061953260	bootloader/bootloader.map	3df1e71b20a70dfc
+226	590	8017963061953260	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+226	590	8017963061953260	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+226	590	8017963061953260	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+226	590	8017963061953260	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+591	652	8017963065604840	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+591	652	8017963065604840	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+652	811	8017963067702341	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+652	811	8017963067702341	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+652	811	8017963067702341	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+652	811	8017963067702341	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+213	428	8017963071896298	CMakeFiles/app_check_size	612701fe8ff9544d
+213	428	8017963071896298	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+200	585	8017963071693883	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+200	585	8017963071693883	bootloader/bootloader.elf	3df1e71b20a70dfc
+200	585	8017963071693883	bootloader/bootloader.bin	3df1e71b20a70dfc
+200	585	8017963071693883	bootloader/bootloader.map	3df1e71b20a70dfc
+200	585	8017963071693883	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+200	585	8017963071693883	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+200	585	8017963071693883	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+200	585	8017963071693883	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+585	647	8017963075595642	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+585	647	8017963075595642	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+647	897	8017963078635899	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+647	897	8017963078635899	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+647	897	8017963078635899	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+647	897	8017963078635899	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+897	5275	8017963078688915	CMakeFiles/flash.util	c334628a16c7743
+252	613	8017966651442686	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	50611ab34ae1af40
+261	749	8017966651535536	esp-idf/main/CMakeFiles/__idf_main.dir/touch_screen.c.obj	92d6c90a60d5ec2a
+279	810	8017966651718860	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+279	810	8017966651718860	bootloader/bootloader.elf	3df1e71b20a70dfc
+279	810	8017966651718860	bootloader/bootloader.bin	3df1e71b20a70dfc
+279	810	8017966651718860	bootloader/bootloader.map	3df1e71b20a70dfc
+279	810	8017966651718860	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+279	810	8017966651718860	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+279	810	8017966651718860	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+279	810	8017966651718860	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+271	822	8017966651634798	esp-idf/main/CMakeFiles/__idf_main.dir/control.c.obj	49c2bc1a43ff672d
+810	873	8017966657031523	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+810	873	8017966657031523	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+873	1005	8017966658851921	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+873	1005	8017966658851921	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+873	1005	8017966658851921	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+873	1005	8017966658851921	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+822	1015	8017966657144359	esp-idf/main/libmain.a	143e573d57b4b4a6
+1015	19593	8017966842926679	esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+1015	19593	8017966842926679	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/esp-idf/esp_system/ld/sections.ld	46d446477acc2a55
+19593	21739	8017966844860144	ball_balancer.elf	6aee8de627a52e14
+21739	22262	8017966871416185	.bin_timestamp	59a5ece3f4ef6d77
+21739	22262	8017966871416185	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/.bin_timestamp	59a5ece3f4ef6d77
+22262	22498	8017966871546755	CMakeFiles/app_check_size	612701fe8ff9544d
+22262	22498	8017966871546755	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+242	468	8017967511032557	CMakeFiles/app_check_size	612701fe8ff9544d
+242	468	8017967511032557	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+224	596	8017967510870354	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+224	596	8017967510870354	bootloader/bootloader.elf	3df1e71b20a70dfc
+224	596	8017967510870354	bootloader/bootloader.bin	3df1e71b20a70dfc
+224	596	8017967510870354	bootloader/bootloader.map	3df1e71b20a70dfc
+224	596	8017967510870354	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+224	596	8017967510870354	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+224	596	8017967510870354	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+224	596	8017967510870354	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+597	661	8017967514562516	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+597	661	8017967514562516	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+661	823	8017967516756065	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+661	823	8017967516756065	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+661	823	8017967516756065	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+661	823	8017967516756065	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+193	437	8017967583247598	CMakeFiles/app_check_size	612701fe8ff9544d
+193	437	8017967583247598	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+179	587	8017967583026235	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+179	587	8017967583026235	bootloader/bootloader.elf	3df1e71b20a70dfc
+179	587	8017967583026235	bootloader/bootloader.bin	3df1e71b20a70dfc
+179	587	8017967583026235	bootloader/bootloader.map	3df1e71b20a70dfc
+179	587	8017967583026235	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+179	587	8017967583026235	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+179	587	8017967583026235	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+179	587	8017967583026235	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+588	652	8017967587196682	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+588	652	8017967587196682	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+652	822	8017967589419491	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+652	822	8017967589419491	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+652	822	8017967589419491	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+652	822	8017967589419491	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+197	435	8017967593108831	CMakeFiles/app_check_size	612701fe8ff9544d
+197	435	8017967593108831	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/app_check_size	612701fe8ff9544d
+185	591	8017967592960462	bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+185	591	8017967592960462	bootloader/bootloader.elf	3df1e71b20a70dfc
+185	591	8017967592960462	bootloader/bootloader.bin	3df1e71b20a70dfc
+185	591	8017967592960462	bootloader/bootloader.map	3df1e71b20a70dfc
+185	591	8017967592960462	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	3df1e71b20a70dfc
+185	591	8017967592960462	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf	3df1e71b20a70dfc
+185	591	8017967592960462	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.bin	3df1e71b20a70dfc
+185	591	8017967592960462	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.map	3df1e71b20a70dfc
+591	699	8017967597030041	bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+591	699	8017967597030041	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	5e674a847f4016c4
+699	873	8017967599773550	CMakeFiles/bootloader-complete	464aa4adf9946b6c
+699	873	8017967599773550	bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+699	873	8017967599773550	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/CMakeFiles/bootloader-complete	464aa4adf9946b6c
+699	873	8017967599773550	C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	464aa4adf9946b6c
+874	5185	8017967599873447	CMakeFiles/flash.util	c334628a16c7743

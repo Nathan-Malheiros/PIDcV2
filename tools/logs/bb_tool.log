@@ -24,3 +24,17 @@
 [2026-05-28 18:01:29] ec=0 dur=146s
 [2026-05-28 18:02:05] flash+monitor COM8
 [2026-05-28 18:23:28] === Ferramenta iniciada ===
+[2026-05-29 18:36:35] === Ferramenta iniciada ===
+[2026-05-29 18:36:38] build start
+[2026-05-29 18:36:41] ec=0 dur=2s
+[2026-05-29 18:37:22] flash+monitor COM8
+[2026-05-29 19:09:56] === Ferramenta iniciada ===
+[2026-05-29 19:10:04] === Ferramenta encerrada ===
+[2026-05-29 19:10:09] === Ferramenta iniciada ===
+[2026-05-29 19:10:11] === Ferramenta encerrada ===
+[2026-05-29 19:18:17] === Ferramenta iniciada ===
+[2026-05-29 19:18:23] flash+monitor COM8
+[2026-05-29 19:25:46] === Ferramenta iniciada ===
+[2026-05-29 19:25:48] build start
+[2026-05-29 19:25:51] ec=0 dur=4s
+[2026-05-29 19:25:55] flash+monitor COM8

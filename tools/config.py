@@ -21,16 +21,16 @@ SCREEN_H_MM = 141.0   # altura      (eixo Y, baixo -> cima)
 # ── Orientacao / mapeamento dos eixos ────────────────────────────────────────
 # Ajuste ate a bola na tela fisica bater com o ponto na tela do programa.
 # Os tres juntos cobrem as 8 orientacoes possiveis (4 rotacoes x espelho).
-SWAP_XY = True   # troca os eixos X <-> Y   (rotaciona 90 graus)
+SWAP_XY = False   # troca os eixos X <-> Y   (rotaciona 90 graus)
 FLIP_X  = True   # espelha horizontalmente
-FLIP_Y  = False   # espelha verticalmente
+FLIP_Y  = True   # espelha verticalmente
 
 # ── Deteccao ─────────────────────────────────────────────────────────────────
 DETECT_THRESHOLD = 300   # mesmo valor de TOUCH_DETECT_THRESHOLD no firmware
 
 # ── Calibracao (preenchido pelo calibrate.py / espelho do touch_screen.h) ─────
 # Estes sao apenas referencia; o firmware usa os #define de touch_screen.h.
-X_RAW_MIN = 2000
-X_RAW_MAX = 3700
-Y_RAW_MIN = 1700
-Y_RAW_MAX = 2600
+X_RAW_MIN = 499
+X_RAW_MAX = 3081
+Y_RAW_MIN = 431
+Y_RAW_MAX = 3797

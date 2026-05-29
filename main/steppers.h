@@ -8,11 +8,11 @@
  * (A4988 / DRV8825 / TMC2208, etc.). Replaces AccelStepper + MultiStepper
  * from the Arduino reference.
  *
- * A 10 kHz esp_timer emits at most one step per motor per tick toward each
- * motor's target, at that motor's configured speed. This is a constant-speed
- * coordinated move (like MultiStepper::runSpeedToPosition), which is plenty
- * for a 50 Hz balancing loop. For higher step rates port this to the RMT or
- * MCPWM peripheral.
+ * A 10 kHz esp_timer integrates a TRAPEZOIDAL velocity profile per motor
+ * (accel-limited, like AccelStepper in the Arduino reference): each axis
+ * accelerates up to its max speed and decelerates in time to stop exactly on
+ * target. This gives smooth motion and avoids skipped steps from abrupt
+ * starts. For higher step rates port this to the RMT or MCPWM peripheral.
  *
  * GPIOs below avoid the touch pins (4,5,8,9), the strapping pins (0,3,45,46)
  * and the USB pins (19,20). VERIFY them against your own wiring before flashing.
@@ -32,6 +32,7 @@ void  steppers_init(void);
 void  steppers_enable(bool on);                 /* on = drivers energised */
 
 void  stepper_set_max_speed(int idx, float steps_per_sec);
+void  stepper_set_acceleration(int idx, float steps_per_sec2);
 void  stepper_move_to(int idx, long abs_steps);
 long  stepper_current(int idx);
 void  steppers_move_to_all(const long target[STEPPER_COUNT]);
