@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -13,87 +14,90 @@
 #include "kinematics.h"
 #include "pid.h"
 #include "steppers.h"
+#include "cal_store.h"
 
 static const char *TAG = "control";
 
 /* ── Machine geometry (mm) ──────────────────────────────────────────────────
- * PLACEHOLDERS scaled from Aaed Musa's reference build (inches -> mm).
- * MEASURE these four lengths on YOUR table and replace them. The numbers only
- * affect the tilt-normal -> motor-angle mapping; the PID itself works in mm
- * regardless, so the loop is stable for tuning even before they are exact.
+ * PLACEHOLDERS — MEDIR no rig real e substituir.
  */
-#define GEO_D   50.8     /* base radius          */
-#define GEO_E   79.4     /* platform radius      */
-#define GEO_F   44.45    /* motor arm length     */
-#define GEO_G   93.2     /* connecting rod length */
-#define GEO_HZ  108.0    /* neutral platform height */
+#define GEO_D   50.8
+#define GEO_E   79.4
+#define GEO_F   44.45
+#define GEO_G   93.2
+#define GEO_HZ  108.0
 
-/* ── Stepper scaling ───────────────────────────────────────────────────────
- * NEMA 17 = 1.8 deg/step = 200 full steps/rev. Set MICROSTEPS to match your
- * driver's DIP switches (the reference used 16 -> 3200 steps/rev).
- */
+/* ── Stepper scaling ──────────────────────────────────────────────────────── */
 #define MICROSTEPS       16
 #define STEPS_PER_REV    (200 * MICROSTEPS)
 #define ANG_TO_STEP      (STEPS_PER_REV / 360.0)
 
-/* ── Control loop ──────────────────────────────────────────────────────────*/
+/* ── Control loop ─────────────────────────────────────────────────────────── */
 #define LOOP_HZ          50
 #define LOOP_DT          (1.0f / LOOP_HZ)
 #define LOOP_PERIOD_MS   (1000 / LOOP_HZ)
 
-/* Setpoint: centre of the table by default. */
 #define SETPOINT_X_MM    (TOUCH_WIDTH_MM  / 2.0f)
 #define SETPOINT_Y_MM    (TOUCH_HEIGHT_MM / 2.0f)
 
-/* Tilt-normal clamp — keep small so the platform never hits a mechanical stop.*/
 #define TILT_LIMIT       0.25f
 
-/* Sinal do controle POR EIXO. Se a mesa empurra a bola para LONGE do centro
- * num eixo (eixo "invertido"), inverta o sinal daquele eixo para -1. Depende
- * da fiacao dos motores e da orientacao do touch. AJUSTAVEL EM TEMPO REAL pela
- * serial:  SX <v>  e  SY <v>  (v < 0 vira -1, v >= 0 vira +1). */
 #define TILT_SIGN_X      (+1.0f)
 #define TILT_SIGN_Y      (+1.0f)
 
-/* ── PID gains (mm domain) ──────────────────────────────────────────────────
- * STARTING POINTS — expect to tune ON HARDWARE. Estes ganhos NAO sao um porte
- * direto da base codes/Ball_Balancing.ino: la o erro esta em unidades CRUAS do
- * touch e a derivada/integral nao sao normalizadas por dt; aqui o erro esta em
- * mm e usamos PID real (integral em mm*s, derivada em mm/s). Logo os numeros
- * tem escalas diferentes — re-tune. Metodo: suba kp ate oscilar em torno do
- * centro, adicione kd para amortecer, depois um toque de ki para matar offset.
- * Ajuste ao vivo com os ganhos editaveis do tools/PIDSimba.py (modo SIM).
+/* ── PID default gains (mm domain) ───────────────────────────────────────────
+ * Ajuste via serial em tempo real; os valores salvos no NVS têm prioridade.
  */
 #define KP   8.0e-4f
 #define KI   2.0e-5f
 #define KD   1.2e-2f
 
-/* Stepper limits (steps/sec, steps/sec^2) while balancing and while homing.
- * O motor de passos agora tem perfil trapezoidal (ver steppers.c): o eixo
- * acelera ate SPEED_* e desacelera para parar no alvo. ACCEL controla a
- * suavidade — alto = responde rapido; baixo = mais suave (porem mais atraso).
- * Na base do Aaed Musa a aceleracao era ~ velocidade*30. */
+/* ── Stepper speed/accel limits ──────────────────────────────────────────── */
 #define SPEED_BALANCE    1500.0f
 #define ACCEL_BALANCE   20000.0f
 #define SPEED_HOME        800.0f
 #define ACCEL_HOME       4000.0f
 
+/* ── UART para comandos seriais ───────────────────────────────────────────── */
+#define CMD_UART   UART_NUM_0
+
+/* ── Estado compartilhado ─────────────────────────────────────────────────── */
+
 static machine_t s_machine;
 static pid_t     s_pid_x, s_pid_y;
-static double    s_ang_orig;     /* leg angle at perfectly level (nx=ny=0) */
-static float     s_sign_x = TILT_SIGN_X;   /* sinal do controle X (+1/-1) */
-static float     s_sign_y = TILT_SIGN_Y;   /* sinal do controle Y (+1/-1) */
+static double    s_ang_orig;
+static float     s_sign_x = TILT_SIGN_X;
+static float     s_sign_y = TILT_SIGN_Y;
 
-/* ── Ajuste de ganhos PID em TEMPO REAL pela serial (UART0) ──────────────────
- * Para calibrar com a mesa funcionando. Comandos (uma linha, termina em \n),
- * maiusculas/minusculas indiferentes, aceita notacao cientifica (ex: 3e-4):
- *   PID <kp> <ki> <kd>   — ajusta os tres de uma vez (ambos os eixos)
- *   KP <v> | KI <v> | KD <v> — ajusta um ganho
- *   ?                    — consulta os ganhos atuais
- * Apos qualquer comando o firmware ecoa  GAINS,<kp>,<ki>,<kd>  (o PIDSimba le
- * essa linha para sincronizar o painel). Os ganhos sao aplicados aos dois PIDs.
+/* Último toque lido pelo loop principal; usado pelo cmd_task para capturar
+ * cantos. Campos 32-bit são atômicos em ARM — sem mutex para leitura simples. */
+static volatile int32_t s_snap_x_raw   = 0;
+static volatile int32_t s_snap_y_raw   = 0;
+static volatile bool    s_snap_touched = false;
+
+/* ── Calibração de cantos da mesa ─────────────────────────────────────────
+ *
+ * Orientação (cabo flat da tela resistiva à DIREITA, olhando de frente):
+ *
+ *     TL ──────────── TR   ← cabo FPC aqui (direita)
+ *     │                │
+ *     │     MESA       │
+ *     │                │
+ *     BL ──────────── BR
+ *
+ * Convenção de saída após calibração:
+ *   x_mm = 0 na borda ESQUERDA, TOUCH_WIDTH_MM na borda DIREITA
+ *   y_mm = 0 na borda SUPERIOR,  TOUCH_HEIGHT_MM na borda INFERIOR
  */
-#define CMD_UART   UART_NUM_0
+#define COR_TL 0
+#define COR_TR 1
+#define COR_BL 2
+#define COR_BR 3
+
+typedef struct { int32_t x, y; bool valid; } corner_t;
+static corner_t s_corners[4];
+
+/* ── Impressão de estado ──────────────────────────────────────────────────── */
 
 static void cmd_print_gains(void)
 {
@@ -106,19 +110,157 @@ static void cmd_print_signs(void)
     printf("SIGNS,%+.0f,%+.0f\n", (double)s_sign_x, (double)s_sign_y);
 }
 
-static void cmd_set_all(float kp, float ki, float kd)
+static void cmd_print_cal(void)
+{
+    int32_t xmin, xmax, ymin, ymax;
+    int fx, fy, sw;
+    touch_get_cal(&xmin, &xmax, &ymin, &ymax, &fx, &fy, &sw);
+    printf("CAL,%ld,%ld,%ld,%ld,%d,%d,%d\n",
+           (long)xmin, (long)xmax, (long)ymin, (long)ymax, fx, fy, sw);
+}
+
+/* ── Comandos de calibração ───────────────────────────────────────────────── */
+
+static void cmd_set_all_gains(float kp, float ki, float kd)
 {
     s_pid_x.kp = kp; s_pid_x.ki = ki; s_pid_x.kd = kd;
     s_pid_y.kp = kp; s_pid_y.ki = ki; s_pid_y.kd = kd;
 }
 
+static void cmd_capture_corner(int idx)
+{
+    if (!s_snap_touched) { printf("ERR,no_touch\n"); return; }
+    s_corners[idx].x     = s_snap_x_raw;
+    s_corners[idx].y     = s_snap_y_raw;
+    s_corners[idx].valid = true;
+    const char *names[] = { "TL", "TR", "BL", "BR" };
+    printf("CORNER,%s,%ld,%ld\n", names[idx],
+           (long)s_corners[idx].x, (long)s_corners[idx].y);
+}
+
+static void cmd_cal_apply(void)
+{
+    if (!s_corners[COR_TL].valid || !s_corners[COR_TR].valid ||
+        !s_corners[COR_BL].valid || !s_corners[COR_BR].valid) {
+        printf("ERR,missing_corners\n");
+        return;
+    }
+
+    /* Média de cada lado/aresta */
+    int32_t left_x  = (s_corners[COR_TL].x + s_corners[COR_BL].x) / 2;
+    int32_t right_x = (s_corners[COR_TR].x + s_corners[COR_BR].x) / 2;
+    int32_t top_x   = (s_corners[COR_TL].x + s_corners[COR_TR].x) / 2;
+    int32_t bot_x   = (s_corners[COR_BL].x + s_corners[COR_BR].x) / 2;
+    int32_t left_y  = (s_corners[COR_TL].y + s_corners[COR_BL].y) / 2;
+    int32_t right_y = (s_corners[COR_TR].y + s_corners[COR_BR].y) / 2;
+    int32_t top_y   = (s_corners[COR_TL].y + s_corners[COR_TR].y) / 2;
+    int32_t bot_y   = (s_corners[COR_BL].y + s_corners[COR_BR].y) / 2;
+
+    /* Auto-detecção de swap_xy: se x_raw varia mais verticalmente do que
+     * horizontalmente, o eixo elétrico X está mapeado no eixo físico Y.    */
+    int32_t x_var_horiz = abs(right_x - left_x);
+    int32_t x_var_vert  = abs(bot_x   - top_x);
+    int swap_xy = (x_var_vert > x_var_horiz) ? 1 : 0;
+
+    int32_t x_raw_min, x_raw_max, y_raw_min, y_raw_max;
+    int flip_x, flip_y;
+
+    if (!swap_xy) {
+        /* x_raw → horizontal, y_raw → vertical */
+        x_raw_min = left_x  < right_x ? left_x  : right_x;
+        x_raw_max = left_x  > right_x ? left_x  : right_x;
+        y_raw_min = top_y   < bot_y   ? top_y   : bot_y;
+        y_raw_max = top_y   > bot_y   ? top_y   : bot_y;
+        /* flip: se o lado esquerdo tem raw maior, precisamos inverter
+         * para que x_mm=0 fique na esquerda.                           */
+        flip_x = (left_x > right_x) ? 1 : 0;
+        /* flip: se a borda superior tem raw maior, invertemos
+         * para que y_mm=0 fique no topo.                               */
+        flip_y = (top_y  > bot_y  ) ? 1 : 0;
+    } else {
+        /* x_raw → vertical, y_raw → horizontal (após swap: new_x=old_y, new_y=old_x) */
+        x_raw_min = top_x  < bot_x   ? top_x  : bot_x;
+        x_raw_max = top_x  > bot_x   ? top_x  : bot_x;
+        y_raw_min = left_y < right_y ? left_y : right_y;
+        y_raw_max = left_y > right_y ? left_y : right_y;
+        flip_x = (left_y > right_y) ? 1 : 0;
+        flip_y = (top_x  > bot_x  ) ? 1 : 0;
+    }
+
+    touch_set_cal(x_raw_min, x_raw_max, y_raw_min, y_raw_max, flip_x, flip_y, swap_xy);
+    cmd_print_cal();
+}
+
+static void cmd_cal_save(void)
+{
+    int32_t xmin, xmax, ymin, ymax;
+    int fx, fy, sw;
+    touch_get_cal(&xmin, &xmax, &ymin, &ymax, &fx, &fy, &sw);
+    cal_touch_t tc = { xmin, xmax, ymin, ymax, (int8_t)fx, (int8_t)fy, (int8_t)sw };
+    cal_store_save_touch(&tc);
+    printf("SAVED,touch\n");
+    cmd_print_cal();
+}
+
+static void cmd_cal_reset(void)
+{
+    touch_set_cal(TOUCH_X_RAW_MIN, TOUCH_X_RAW_MAX,
+                  TOUCH_Y_RAW_MIN, TOUCH_Y_RAW_MAX,
+                  TOUCH_FLIP_X, TOUCH_FLIP_Y, TOUCH_SWAP_XY);
+    for (int i = 0; i < 4; i++) s_corners[i].valid = false;
+    cmd_print_cal();
+}
+
+static void cmd_handle_cal(const char *sub)
+{
+    if      (strcmp(sub, "TL")    == 0) { cmd_capture_corner(COR_TL); }
+    else if (strcmp(sub, "TR")    == 0) { cmd_capture_corner(COR_TR); }
+    else if (strcmp(sub, "BL")    == 0) { cmd_capture_corner(COR_BL); }
+    else if (strcmp(sub, "BR")    == 0) { cmd_capture_corner(COR_BR); }
+    else if (strcmp(sub, "APPLY") == 0) { cmd_cal_apply(); }
+    else if (strcmp(sub, "SAVE")  == 0) { cmd_cal_save(); }
+    else if (strcmp(sub, "SHOW")  == 0) { cmd_print_cal(); }
+    else if (strcmp(sub, "RESET") == 0) { cmd_cal_reset(); }
+    else { printf("ERR,unknown_cal_cmd\n"); }
+}
+
+/* ── Parser de linha serial ───────────────────────────────────────────────── */
+
 static void cmd_handle(char *s)
 {
+    /* converter para maiúsculas */
     for (char *p = s; *p; ++p) *p = (char)toupper((unsigned char)*p);
 
     float a, b, c;
-    if (sscanf(s, "PID %f %f %f", &a, &b, &c) == 3) {
-        cmd_set_all(a, b, c);
+
+    /* SETCAL <xmin> <xmax> <ymin> <ymax> <flip_x> <flip_y> <swap_xy>
+     * Comando enviado pelo calibrate.py / pid_tuner.py para aplicar a
+     * calibracao calculada no PC diretamente, sem precisar de rebuild.
+     * Diferente de "CAL TL/TR..." que captura o toque atual do hardware,
+     * SETCAL aceita os valores crus calculados externamente. */
+    int ixmin, ixmax, iymin, iymax, ifx, ify, isw;
+    if (sscanf(s, "SETCAL %d %d %d %d %d %d %d",
+               &ixmin, &ixmax, &iymin, &iymax, &ifx, &ify, &isw) == 7) {
+        touch_set_cal(ixmin, ixmax, iymin, iymax, ifx, ify, isw);
+        cmd_print_cal();
+        return;
+    }
+
+    /* PID SAVE — deve vir antes do "PID %f %f %f" para não haver conflito */
+    if (strncmp(s, "PID SAVE", 8) == 0) {
+        cal_pid_t p = { s_pid_x.kp, s_pid_x.ki, s_pid_x.kd };
+        cal_store_save_pid(&p);
+        printf("SAVED,pid\n");
+        cmd_print_gains();
+    }
+    /* Ajuste de ganhos PID:
+     *   PID <kp> <ki> <kd>   — ajusta os três de uma vez
+     *   KP <v> | KI <v> | KD <v> — ajusta um por vez
+     *   ?                    — consulta ganhos e sinais
+     *   SX <v> | SY <v>      — sinal do controle por eixo (+1/-1)
+     */
+    else if (sscanf(s, "PID %f %f %f", &a, &b, &c) == 3) {
+        cmd_set_all_gains(a, b, c);
         cmd_print_gains();
     } else if (sscanf(s, "KP %f", &a) == 1) {
         s_pid_x.kp = a; s_pid_y.kp = a; cmd_print_gains();
@@ -130,17 +272,25 @@ static void cmd_handle(char *s)
         s_sign_x = (a < 0.0f) ? -1.0f : +1.0f; cmd_print_signs();
     } else if (sscanf(s, "SY %f", &a) == 1) {
         s_sign_y = (a < 0.0f) ? -1.0f : +1.0f; cmd_print_signs();
-    } else if (s[0] == '?') {
+    }
+    /* Calibração da mesa — CAL <subcomando> */
+    else if (strncmp(s, "CAL ", 4) == 0) {
+        cmd_handle_cal(s + 4);
+    }
+    else if (s[0] == '?') {
         cmd_print_gains();
         cmd_print_signs();
+        cmd_print_cal();
     }
-    /* comando desconhecido: ignora silenciosamente */
+    /* comando desconhecido: ignora */
 }
+
+/* ── Task serial (leitura UART em background) ─────────────────────────────── */
 
 static void cmd_task(void *arg)
 {
     uint8_t ch;
-    char    line[80];
+    char    line[64];
     int     n = 0;
     for (;;) {
         int r = uart_read_bytes(CMD_UART, &ch, 1, pdMS_TO_TICKS(100));
@@ -153,15 +303,13 @@ static void cmd_task(void *arg)
     }
 }
 
-/* Convert a tilt normal into the 3 motor step targets and command them. */
+/* ── Cinemática → motores ─────────────────────────────────────────────────── */
+
 static void apply_tilt(double nx, double ny, double thoff[3])
 {
     long pos[STEPPER_COUNT];
     for (int i = 0; i < STEPPER_COUNT; i++) {
         double theta = machine_theta(&s_machine, i, GEO_HZ, nx, ny);
-        /* Inclinacao inalcancavel p/ a geometria -> acos fora de [-1,1] -> NaN.
-         * lround(NaN) e indefinido (passo lixo). Cai para o nivel com seguranca.
-         * Se isto acontecer muito, MEDIR GEO_D/E/F/G/HZ do rig real. */
         if (!isfinite(theta)) theta = s_ang_orig;
         thoff[i] = theta;
         pos[i] = lround((s_ang_orig - theta) * ANG_TO_STEP);
@@ -169,19 +317,42 @@ static void apply_tilt(double nx, double ny, double thoff[3])
     steppers_move_to_all(pos);
 }
 
+/* ── Entry point ──────────────────────────────────────────────────────────── */
+
 void control_run(void)
 {
     ESP_LOGI(TAG, "Ball Balancer — Control Mode @ %d Hz", LOOP_HZ);
 
-    machine_init(&s_machine, GEO_D, GEO_E, GEO_F, GEO_G);
-    pid_init(&s_pid_x, KP, KI, KD, -TILT_LIMIT, TILT_LIMIT);
-    pid_init(&s_pid_y, KP, KI, KD, -TILT_LIMIT, TILT_LIMIT);
+    /* NVS deve ser inicializado antes de qualquer load/save */
+    cal_store_init();
 
-    /* Level reference: by symmetry every leg shares the same angle at nx=ny=0. */
+    machine_init(&s_machine, GEO_D, GEO_E, GEO_F, GEO_G);
+
+    /* Carrega ganhos PID do NVS; usa defaults de compilação se não há nada salvo */
+    cal_pid_t saved_pid;
+    if (cal_store_load_pid(&saved_pid)) {
+        pid_init(&s_pid_x, saved_pid.kp, saved_pid.ki, saved_pid.kd,
+                 -TILT_LIMIT, TILT_LIMIT);
+        pid_init(&s_pid_y, saved_pid.kp, saved_pid.ki, saved_pid.kd,
+                 -TILT_LIMIT, TILT_LIMIT);
+    } else {
+        pid_init(&s_pid_x, KP, KI, KD, -TILT_LIMIT, TILT_LIMIT);
+        pid_init(&s_pid_y, KP, KI, KD, -TILT_LIMIT, TILT_LIMIT);
+    }
+
     s_ang_orig = machine_theta(&s_machine, LEG_A, GEO_HZ, 0.0, 0.0);
     ESP_LOGI(TAG, "ang_orig = %.3f deg  (steps/rev=%d)", s_ang_orig, STEPS_PER_REV);
 
     touch_init();
+
+    /* Carrega calibração do touch do NVS se disponível */
+    cal_touch_t saved_touch;
+    if (cal_store_load_touch(&saved_touch)) {
+        touch_set_cal(saved_touch.x_raw_min, saved_touch.x_raw_max,
+                      saved_touch.y_raw_min, saved_touch.y_raw_max,
+                      saved_touch.flip_x, saved_touch.flip_y, saved_touch.swap_xy);
+    }
+
     steppers_init();
 
     for (int i = 0; i < STEPPER_COUNT; i++) {
@@ -189,11 +360,8 @@ void control_run(void)
         stepper_set_acceleration(i, ACCEL_HOME);
     }
     steppers_enable(true);
-    vTaskDelay(pdMS_TO_TICKS(500));      /* let the user square the platform */
+    vTaskDelay(pdMS_TO_TICKS(500));
 
-    /* Home to level and wait until the platform settles there.
-     * NB: nao ha chave de fim de curso — a posicao 0 dos motores e ASSUMIDA
-     * como nivelada no boot. Deixe a mesa plana antes de energizar. */
     double thoff[3];
     apply_tilt(0.0, 0.0, thoff);
     steppers_run_to_position_blocking();
@@ -204,13 +372,17 @@ void control_run(void)
     }
 
     printf("# Ball Balancer control mode\n");
-    printf("# CTRL,x_mm,y_mm,setx,sety,nx,ny,thA,thB,thC\n");
+    printf("# Comandos seriais disponíveis:\n");
+    printf("#   PID <kp> <ki> <kd>  KP/KI/KD <v>  SX/SY <v>  PID SAVE\n");
+    printf("#   CAL TL|TR|BL|BR     CAL APPLY  CAL SAVE  CAL SHOW  CAL RESET\n");
+    printf("#   ? — exibe estado atual\n");
 
-    /* Leitor de comandos de ganhos pela serial (ajuste em tempo real). */
     uart_driver_install(CMD_UART, 256, 0, 0, NULL, 0);
     xTaskCreate(cmd_task, "pid_cmd", 3072, NULL, 5, NULL);
-    cmd_print_gains();      /* anuncia os ganhos iniciais */
-    cmd_print_signs();      /* e os sinais de controle por eixo */
+
+    cmd_print_gains();
+    cmd_print_signs();
+    cmd_print_cal();
 
     bool detected = false;
     TickType_t last_wake = xTaskGetTickCount();
@@ -218,6 +390,13 @@ void control_run(void)
     for (;;) {
         touch_pos_t p;
         bool touched = touch_read(&p);
+
+        /* Atualiza snapshot compartilhado com o cmd_task */
+        s_snap_touched = touched;
+        if (touched) {
+            s_snap_x_raw = p.x_raw;
+            s_snap_y_raw = p.y_raw;
+        }
 
         double nx = 0.0, ny = 0.0;
 
@@ -228,7 +407,6 @@ void control_run(void)
             nx = s_sign_x * ox;
             ny = s_sign_y * oy;
         } else if (detected) {
-            /* Ball just left the surface — relax to level and reset state. */
             detected = false;
             pid_reset(&s_pid_x);
             pid_reset(&s_pid_y);
@@ -236,7 +414,7 @@ void control_run(void)
 
         apply_tilt(nx, ny, thoff);
 
-        /* Telemetry for tools/sim.py and the visualizer. */
+        /* Telemetria */
         if (touched) {
             printf("POS,%ld,%ld,%.1f,%.1f\n",
                    (long)p.x_raw, (long)p.y_raw, p.x_mm, p.y_mm);

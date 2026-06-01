@@ -2,4 +2,4 @@
 -fno-builtin-memcpy
 -fno-builtin-memset
 -fno-builtin-bzero
-"-specs=C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/specs/picolibc.specs"
+"-specs=C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV4/build/specs/picolibc.specs"

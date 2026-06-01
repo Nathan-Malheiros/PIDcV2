@@ -20,12 +20,12 @@
 
 #define STEPPER_COUNT     3
 
-#define STEP_PIN_A        11
-#define DIR_PIN_A         12
-#define STEP_PIN_B        13
-#define DIR_PIN_B         14
-#define STEP_PIN_C        21
-#define DIR_PIN_C         47
+#define STEP_PIN_A        15
+#define DIR_PIN_A         16
+#define STEP_PIN_B        17
+#define DIR_PIN_B         18
+#define STEP_PIN_C        40
+#define DIR_PIN_C         41
 #define STEPPER_EN_PIN    10     /* common ENABLE, active LOW on most drivers */
 
 void  steppers_init(void);

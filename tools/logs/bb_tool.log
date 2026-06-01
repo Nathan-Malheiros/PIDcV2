@@ -38,3 +38,31 @@
 [2026-05-29 19:25:48] build start
 [2026-05-29 19:25:51] ec=0 dur=4s
 [2026-05-29 19:25:55] flash+monitor COM8
+[2026-05-30 09:54:15] === Ferramenta iniciada ===
+[2026-05-30 09:54:19] build start
+[2026-05-30 09:55:06] ec=0 dur=48s
+[2026-05-30 09:58:18] flash+monitor COM8
+[2026-06-01 16:29:15] === Ferramenta iniciada ===
+[2026-06-01 16:29:18] build start
+[2026-06-01 16:29:24] ec=2 dur=6s
+[2026-06-01 16:32:59] build start
+[2026-06-01 16:35:39] ec=0 dur=160s
+[2026-06-01 16:35:57] flash+monitor COM8
+[2026-06-01 16:40:04] === Ferramenta iniciada ===
+[2026-06-01 16:40:15] pid_tuner COM8
+[2026-06-01 18:16:58] === Ferramenta iniciada ===
+[2026-06-01 18:17:03] === Ferramenta encerrada ===
+[2026-06-01 18:17:14] === Ferramenta iniciada ===
+[2026-06-01 18:17:15] build start
+[2026-06-01 18:17:38] ec=0 dur=23s
+[2026-06-01 18:17:42] flash+monitor COM8
+[2026-06-01 18:17:51] flash+monitor COM8
+[2026-06-01 18:40:06] === Ferramenta iniciada ===
+[2026-06-01 18:40:07] build start
+[2026-06-01 18:40:20] ec=0 dur=13s
+[2026-06-01 18:40:45] flash+monitor COM8
+[2026-06-01 19:01:14] === Ferramenta iniciada ===
+[2026-06-01 19:24:14] === Ferramenta iniciada ===
+[2026-06-01 19:34:07] === Ferramenta encerrada ===
+[2026-06-01 19:56:50] === Ferramenta iniciada ===
+[2026-06-01 19:56:54] monitor COM8

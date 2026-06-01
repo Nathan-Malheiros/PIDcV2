@@ -501,6 +501,47 @@ function Do-Calibration {
 # Visualizador Python
 # ---------------------------------------------------------------------------
 
+function Do-PIDTuner {
+    Header 'Ajuste PID em Tempo Real'
+
+    $script = Join-Path $ToolDir 'pid_tuner.py'
+    if (-not (Test-Path $script)) {
+        Write-Host '  pid_tuner.py nao encontrado em tools/.' -ForegroundColor Red
+        Pause; return
+    }
+
+    if (-not (Get-Command python -ErrorAction SilentlyContinue)) {
+        Write-Host '  Python nao encontrado no PATH.' -ForegroundColor Red
+        Pause; return
+    }
+
+    $pkgCheck = & python -c "import pygame, serial" 2>&1
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host '  pygame ou pyserial nao instalados.' -ForegroundColor Yellow
+        $ans = (Read-Host '  Instalar agora? (Enter = sim / N = nao)').Trim()
+        if ($ans -ne 'N' -and $ans -ne 'n') {
+            & pip install -r (Join-Path $ToolDir 'requirements.txt')
+            if ($LASTEXITCODE -ne 0) { Write-Host '  Instalacao falhou.' -ForegroundColor Red; Pause; return }
+        } else { Pause; return }
+    }
+
+    if (-not (SelectPort)) { Write-Host '  Porta nao definida. Cancelado.' -ForegroundColor Red; Pause; return }
+
+    Write-Host ''
+    Write-Host '  Requer firmware em modo CONTROL (padrao).' -ForegroundColor Cyan
+    Write-Host ''
+    Write-Host '  Teclas:' -ForegroundColor White
+    Write-Host '   Q/A = KP sobe/desce     W/S = KI sobe/desce     E/D = KD sobe/desce' -ForegroundColor DarkGray
+    Write-Host '   Tab = muda passo (1%/5%/10%/25%)   Espaco = SALVAR NO NVS' -ForegroundColor DarkGray
+    Write-Host ''
+    Write-Host "  Iniciando PID Tuner -- porta $($script:Port)" -ForegroundColor Green
+
+    Log "pid_tuner $($script:Port)"
+    Start-Process python -ArgumentList "`"$script`" $($script:Port) $($script:Baud)" `
+                         -WorkingDirectory $ToolDir
+    Pause
+}
+
 function Do-Visualizer {
     Header 'Visualizador em Tempo Real'
 
@@ -614,11 +655,12 @@ while ($running) {
     Write-Host '  FERRAMENTAS' -ForegroundColor White
     Write-Host '   6  Detectar ESP32 na USB'
     Write-Host '   7  Diagnosticos'
-    Write-Host '   8  Calibracao da tela resistiva' -ForegroundColor Cyan
-    Write-Host '   9  Iniciar visualizador Python' -ForegroundColor Cyan
+    Write-Host '   8  Calibracao da tela resistiva (4 cantos, salva no NVS)' -ForegroundColor Cyan
+    Write-Host '   9  Visualizador Python'
     Write-Host '  10  Menuconfig  (configuracoes do firmware)'
     Write-Host '  11  Apagar flash  (PERIGO)' -ForegroundColor Yellow
     Write-Host '  12  Definir porta COM' -ForegroundColor Cyan
+    Write-Host '  13  Ajuste PID em tempo real' -ForegroundColor Green
     Write-Host ''
     Write-Host '   0  Sair' -ForegroundColor Red
     Write-Host ''
@@ -639,6 +681,7 @@ while ($running) {
             '10' { Do-Menuconfig }
             '11' { Do-Erase }
             '12' { Do-SetPort }
+            '13' { Do-PIDTuner }
             '0'  { $running = $false }
             ''   { }
             default {

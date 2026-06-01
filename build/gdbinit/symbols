@@ -13,8 +13,8 @@ end
 
 # Load bootloader symbols
 set confirm off
-    add-symbol-file C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf
+    add-symbol-file C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV4/build/bootloader/bootloader.elf
 set confirm on
 
 # Load application symbols
-file C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/ball_balancer.elf
+file C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV4/build/ball_balancer.elf

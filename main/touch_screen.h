@@ -20,10 +20,10 @@
 /* ── ADC calibration boundaries (12-bit raw, 0–4095) ────────────────────── */
 /*    Updated via bb_firmware_tool option 8.                                  */
 /*    These shift slightly between power cycles — recalibrate when needed.   */
-#define TOUCH_X_RAW_MIN  499
-#define TOUCH_X_RAW_MAX  3081
-#define TOUCH_Y_RAW_MIN  431
-#define TOUCH_Y_RAW_MAX  3797
+#define TOUCH_X_RAW_MIN  665
+#define TOUCH_X_RAW_MAX  2981
+#define TOUCH_Y_RAW_MIN  554
+#define TOUCH_Y_RAW_MAX  3273
 
 /* ── Tuning parameters ───────────────────────────────────────────────────── */
 
@@ -40,9 +40,9 @@
  *   TOUCH_FLIP_X  : mirror X
  *   TOUCH_FLIP_Y  : mirror Y
  */
-#define TOUCH_SWAP_XY  0
+#define TOUCH_SWAP_XY  1
 #define TOUCH_FLIP_X   1
-#define TOUCH_FLIP_Y   1
+#define TOUCH_FLIP_Y   0
 
 /*
  * IIR low-pass filter weight applied to the converted mm value.
@@ -100,3 +100,21 @@ void touch_init(void);
  * @return          Same value as pos->valid.
  */
 bool touch_read(touch_pos_t *pos);
+
+/*
+ * Runtime calibration override — replaces the compile-time #define defaults.
+ * Can be called at any time (takes effect on the next touch_read()).
+ * Typically loaded from NVS via cal_store or computed by the CAL APPLY command.
+ *
+ * Orientation flags follow the same convention as the compile-time macros:
+ *   swap_xy : swap X <-> Y axes (90° panel rotation)
+ *   flip_x  : mirror X axis
+ *   flip_y  : mirror Y axis
+ */
+void touch_set_cal(int32_t x_raw_min, int32_t x_raw_max,
+                   int32_t y_raw_min, int32_t y_raw_max,
+                   int flip_x, int flip_y, int swap_xy);
+
+void touch_get_cal(int32_t *x_raw_min, int32_t *x_raw_max,
+                   int32_t *y_raw_min, int32_t *y_raw_max,
+                   int *flip_x, int *flip_y, int *swap_xy);

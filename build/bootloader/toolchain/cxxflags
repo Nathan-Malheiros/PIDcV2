@@ -1,4 +1,4 @@
-"-specs=C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/specs/picolibc.specs"
+"-specs=C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV4/build/bootloader/specs/picolibc.specs"
 -mlongcalls
 -fno-builtin-memcpy
 -fno-builtin-memset

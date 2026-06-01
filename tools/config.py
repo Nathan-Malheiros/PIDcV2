@@ -10,7 +10,7 @@ com as teclas  X / Y / T , e gravada de volta aqui (e no firmware) com  G .
 """
 
 # ── Conexao serial ───────────────────────────────────────────────────────────
-PORT = "COM8"
+PORT = "COM8"   # ← MUDE AQUI para a porta do seu ESP32 (ex: "COM3", "COM11")
 BAUD = 115200
 
 # ── Dimensoes fisicas da tela (mm) ───────────────────────────────────────────
@@ -21,9 +21,9 @@ SCREEN_H_MM = 141.0   # altura      (eixo Y, baixo -> cima)
 # ── Orientacao / mapeamento dos eixos ────────────────────────────────────────
 # Ajuste ate a bola na tela fisica bater com o ponto na tela do programa.
 # Os tres juntos cobrem as 8 orientacoes possiveis (4 rotacoes x espelho).
-SWAP_XY = False   # troca os eixos X <-> Y   (rotaciona 90 graus)
+SWAP_XY = True   # troca os eixos X <-> Y   (rotaciona 90 graus)
 FLIP_X  = True   # espelha horizontalmente
-FLIP_Y  = True   # espelha verticalmente
+FLIP_Y  = False   # espelha verticalmente
 
 # ── Deteccao ─────────────────────────────────────────────────────────────────
 DETECT_THRESHOLD = 300   # mesmo valor de TOUCH_DETECT_THRESHOLD no firmware

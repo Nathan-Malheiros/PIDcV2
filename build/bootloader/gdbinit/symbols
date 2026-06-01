@@ -17,4 +17,4 @@ set confirm off
 set confirm on
 
 # Load application symbols
-file C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV2/build/bootloader/bootloader.elf
+file C:/Users/natha/OneDrive/Documentos/Unifor Note/Controle/PIDcV4/build/bootloader/bootloader.elf

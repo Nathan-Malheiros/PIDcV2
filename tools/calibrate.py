@@ -26,6 +26,8 @@ except ImportError:
     sys.exit(1)
 
 # ── Configuracao (tools/config.py) — com fallback caso o arquivo falte ───────
+# Garante que config.py seja encontrado independente de onde o script é rodado
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 try:
     import config as cfg
 except Exception:
@@ -189,7 +191,12 @@ class SerialReader(threading.Thread):
     def __init__(self, port, baud, q):
         super().__init__(daemon=True)
         self.port, self.baud, self.q = port, baud, q
-        self._stop = threading.Event()
+        self._stop   = threading.Event()
+        self._wq     = queue.Queue()   # fila de escrita (main thread → serial)
+
+    def write(self, line: str):
+        """Envia um comando para o firmware (thread-safe)."""
+        self._wq.put(line.rstrip('\n') + '\n')
 
     def run(self):
         while not self._stop.is_set():
@@ -197,6 +204,12 @@ class SerialReader(threading.Thread):
                 with serial.Serial(self.port, self.baud, timeout=1.0) as ser:
                     self.q.put(('status', 'conectado'))
                     while not self._stop.is_set():
+                        # Drena fila de escrita antes de ler
+                        while not self._wq.empty():
+                            try:
+                                ser.write(self._wq.get_nowait().encode())
+                            except queue.Empty:
+                                break
                         raw = ser.readline()
                         if not raw:
                             continue
@@ -217,6 +230,10 @@ class SerialReader(threading.Thread):
                                 self.q.put(('notouch', 0, 0))
                         elif tag == 'NOTOUCH':
                             self.q.put(('notouch', 0, 0))
+                        elif tag == 'SAVED':
+                            self.q.put(('saved', ','.join(parts[1:])))
+                        elif tag == 'CAL' and len(parts) >= 5:
+                            self.q.put(('cal_confirmed', line))
             except serial.SerialException as e:
                 self.q.put(('status', f'erro: {e}'))
                 time.sleep(2.0)
@@ -307,10 +324,16 @@ class App:
                     self.trail.append((item[1], item[2], time.time()))
             elif tag == 'notouch':
                 self.touched = False
-                # NOTOUCH tambem carrega valores raw reais do ADC — exibe-os
                 if len(item) >= 3:
                     self.cur_xr = item[1]
                     self.cur_yr = item[2]
+            elif tag == 'saved':
+                what = item[1] if len(item) > 1 else ''
+                if 'touch' in what:
+                    self.save_msg = "✓ Calibração salva no NVS do ESP32!"
+                    self.save_ts  = time.time()
+            elif tag == 'cal_confirmed':
+                pass   # confirmação de echo — já mostrado no save_msg
 
         # Timeout de toque
         if self.touched and (time.time() - self.pos_ts) > 0.5:
@@ -407,7 +430,14 @@ class App:
 
         pulse = int(time.time() * 2) % 2 == 0
         msg_col = C['highlight'] if pulse else C['warn']
-        self._t("Pressione  ENTER  para comecar", msg_col, WIN_W//2, y, self.f_lg, cx=True)
+        self._t("Pressione  ENTER  para comecar a calibracao", msg_col, WIN_W//2, y, self.f_lg, cx=True)
+        y += 30
+
+        cfg_ok = (hasattr(cfg, 'X_RAW_MIN') and hasattr(cfg, 'X_RAW_MAX') and
+                  hasattr(cfg, 'Y_RAW_MIN') and hasattr(cfg, 'Y_RAW_MAX'))
+        if cfg_ok:
+            self._t("Pressione  L  para ir direto ao LIVE (calibracao de config.py)",
+                    C['hint'], WIN_W//2, y, self.f_sm, cx=True)
 
     # ── CAL_READY ────────────────────────────────────────────────────────────
 
@@ -599,6 +629,12 @@ class App:
 
         self._t("Pressione  ENTER  para visualizacao ao vivo",
                 C['heading'], rx, ry, self.f_lg)
+        ry += 30
+        self._t("Pressione  N  para salvar no NVS do ESP32 (modo CONTROL)",
+                C['hint'], rx, ry, self.f_sm)
+        ry += 18
+        self._t("  Sem rebuild! Valores carregados automaticamente no proximo boot.",
+                C['dim'], rx, ry, self.f_sm)
 
         # Toast de salvamento
         if self.save_msg and (time.time() - self.save_ts) < 3.0:
@@ -773,9 +809,11 @@ class App:
         if self.touched:
             cur_mm = raw2mm(self.cur_xr, self.cur_yr)
             p = mm2p(*cur_mm)
-            if plot_rect.collidepoint(p):
-                pygame.draw.circle(s, C['ball'], p, 12)
-                pygame.draw.circle(s, (255, 90, 90), p, 12, 2)
+            # Clamp: garante visibilidade mesmo quando mm == limite exato
+            px = max(plot_rect.x, min(p[0], plot_rect.right  - 1))
+            py = max(plot_rect.y, min(p[1], plot_rect.bottom - 1))
+            pygame.draw.circle(s, C['ball'], (px, py), 12)
+            pygame.draw.circle(s, (255, 90, 90), (px, py), 12, 2)
 
         # ── Painel lateral ───────────────────────────────────────────────────
         rpx = WIN_W - PANEL_W + 14
@@ -1057,6 +1095,35 @@ class App:
         if y_min >= y_max: y_max = y_min + 1
         return (x_min, x_max, y_min, y_max)
 
+    def _push_to_nvs(self):
+        """Envia a calibracao diretamente para o NVS do ESP32 via SETCAL + CAL SAVE.
+        Requer que o firmware esteja em modo CONTROL (BB_MODE_CONTROL) com
+        o cmd_task ativo. Nao requer rebuild nem reflash."""
+        if not self.cal:
+            self.save_msg = "Erro: calibracao nao calculada ainda."
+            self.save_ts  = time.time()
+            return
+
+        x_min, x_max, y_min, y_max = self.cal
+
+        # Calcula flip_x / flip_y a partir dos cantos coletados
+        # corner_data: [TL(0), TR(1), BL(2), BR(3)]
+        left_x  = (self.corner_data[0][0] + self.corner_data[2][0]) // 2
+        right_x = (self.corner_data[1][0] + self.corner_data[3][0]) // 2
+        top_y   = (self.corner_data[0][1] + self.corner_data[1][1]) // 2
+        bot_y   = (self.corner_data[2][1] + self.corner_data[3][1]) // 2
+        flip_x  = 1 if left_x > right_x else 0
+        flip_y  = 1 if top_y  > bot_y   else 0
+        swap_xy = 1 if self.swap_xy else 0
+
+        cmd = f"SETCAL {x_min} {x_max} {y_min} {y_max} {flip_x} {flip_y} {swap_xy}"
+        self.reader.write(cmd)
+        time.sleep(0.15)
+        self.reader.write("CAL SAVE")
+
+        self.save_msg = "Enviado ao ESP32 — aguardando confirmacao NVS..."
+        self.save_ts  = time.time()
+
     def _save_header(self):
         x_min, x_max, y_min, y_max = self.cal
         try:
@@ -1077,6 +1144,22 @@ class App:
         except Exception as e:
             print(f"[ERRO] {e}")
             return False
+
+    # ── Atalho: pula wizard usando calibracao de config.py ───────────────────
+
+    def _load_cal_from_config(self):
+        """Carrega calibracao de config.py e vai direto para o estado LIVE."""
+        if not (hasattr(cfg, 'X_RAW_MIN') and hasattr(cfg, 'X_RAW_MAX') and
+                hasattr(cfg, 'Y_RAW_MIN') and hasattr(cfg, 'Y_RAW_MAX')):
+            return
+        x_min = int(_cfg('X_RAW_MIN', 499))
+        x_max = int(_cfg('X_RAW_MAX', 3081))
+        y_min = int(_cfg('Y_RAW_MIN', 431))
+        y_max = int(_cfg('Y_RAW_MAX', 3797))
+        if x_min >= x_max: x_max = x_min + 1
+        if y_min >= y_max: y_max = y_min + 1
+        self.cal = (x_min, x_max, y_min, y_max)
+        self.state = 'LIVE'
 
     # ── Loop principal ────────────────────────────────────────────────────────
 
@@ -1099,6 +1182,10 @@ class App:
                         elif self.state == 'SPLASH':
                             if k == pygame.K_RETURN:
                                 self.state = 'CAL_READY'
+                            elif k == pygame.K_l:
+                                self._load_cal_from_config()
+
+
 
                         elif self.state == 'CAL_READY':
                             if k == pygame.K_SPACE:
@@ -1118,6 +1205,8 @@ class App:
                                 ok = self._save_header()
                                 self.save_msg = "Salvo em touch_screen.h  (OK)" if ok else "Erro ao salvar!"
                                 self.save_ts  = time.time()
+                            elif k == pygame.K_n:
+                                self._push_to_nvs()
                             elif k == pygame.K_RETURN:
                                 self.state = 'LIVE'
 
